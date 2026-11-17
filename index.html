@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="NOREBO">
+<meta name="application-name" content="NOREBO">
+<meta name="theme-color" content="#0d161b">
+<link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAEu0lEQVR42u3cMW7UQBSHccdKRUXLFXKLtOlpEBKHoOAMFBwCCdHQ03ILzkMRaRVtFsfxzsx7M/P7KpAie+35/H9vZrx78+btuwU4yuoWgEAgEAgEAgEEAoFAIBAIIBAIBAKBQACBQCAQCAQCCAQCgUDomNuEn+nTzx8G5iLfP3zM9pFuknwrgzSd+hQs0EVvfn3+Qo6LvP/2NZtGYQKdqUOa62UKMSlAIOpUNamxRq0FOtnDm3oatXSonUBPg4c9w2jUSCDBE6JRA4dW9ozH6T43WBypnkCP10CdwCiqmkMre4aPoqo5tLKHQxkFYs8kDq3s4VAugWyLZqb46KxVlUfCuX1qgRSv2QrZWtweTFXI1kqaY5JCtpaVmj2zFTIv1SOBQLqfaTuhkgmkfk3YCSlhiBZI+zxzKy2BQCAQCJMKpAGavA2SQFDCQCAQCAQCCAQCgUAgEEAgEAgEAoEAAoFAIBAIBBAIBAKBQCAQCCAQCAQCgUDAPm7dgov8/vvn9O+Hu3s3RAIdtOf5f5E9gf43YG2S4OLZf//9I4f6SKCNx71BEsSenUAVx6/BKJ4d/OHu/ix1OJS6hD0fv8DsOZ394e6eN/010WePfm2ZNtw1C+tDoBenzc0Cafvs0iijQHkWXTbOLoeSCrT/ma4UQqdD7VRECCUSaLv5aFnIBEz3TfSBIbzeoVcdQSeUdxq/356zeXWRNeLM8RO7Lp86gV7bfBS/dweCpPGw5V8Zjy9hx4ak4EAeO1Tsvkoeh8IEuv7ir+xIkvcxF/dVEu6uBCfQlUES0v00aKVftTIe69Ca4fFqf8COplEvrsvHXk73L5RdE0L51372r4xHORQg0OHJV6lQCW+/tj/b/vvz9A+iHoYRXmk9NpwJ4+fAnuDjnwVey23geFcag43jd9H6RK2KzZtAOy0pu+dfvIp1uj0yiEAvdpRPG4vij2zBse9uT3ecBHru0Glc8z/c/e7ODlXCnj++TzWqeroiZ+nxlZLReqDtCpVzhLp+OWTMb6buWb3N1rJ0+kbbsN+NbzYep/eTjr2Z1Pu7ab4bDwJ1S6VdHQL1Wi4nfFeaQBO1awQaSoIx4opAtdqaGeKHQDEhVHV9nECDh9Bgv75IoKbTsaovBRBo8BwacpJPoEYOjbpE5Heiy1exF70Z6ZdAJFDr6dhgvyNDoFoONXulhECzRNGQv2GlB4osZxIIs0MgEAgEAoFAIIBAIBAIBAIBBAKBQCAQCCAQCAQCgUAAgUAgEAgEAoEO8v3Dx2VZ3n/76lZ2x+OoPY6gBIISBgKBQFcVVEzVAJUR6PoPAQkEApnMq18SCH2XMCHUS/ykE0gr3RelxmtNLjjSdj/lBRJCeiDTMfGTYxbGoRnsqSKQQjb8zKt6AilkY8+8WpQwDg1fvOoKxKEZ7FmW5ebN23dVL+DTzx/Lsvz6/MVYRvU9VbvS6gKdHKLRePYsbTZTT9egnA1mT6MEOsshUTSGOq0FUs7aqLO0XYprLdBZFDGpX3XCBKJRcW+i7IkU6KJGZHqtNEv03lGwQNsmYc/cNpYsApGpI2myC4SO8K0MEAgEAoFAIIBAIBAIBAIBBAKBQCAQCCAQCAQCgUAAgUAgBPMPd64hi63vWRcAAAAASUVORK5CYII=">
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>NOREBO · Binaural Player</title><style>:root{color-scheme:dark;--bg:#090d15;--panel:#121925;--line:#263244;--text:#eaf1fb;--muted:#8d9aaf;--cyan:#74e5e4;--purple:#a68aff}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 60% -20%,#19283e 0%,var(--bg) 60%);font:15px system-ui,-apple-system,sans-serif;color:var(--text)}.shell{max-width:1200px;margin:auto;padding:28px 24px 60px}header,.top,.flex{display:flex;align-items:center;justify-content:space-between;gap:16px}header{padding-bottom:28px;border-bottom:1px solid var(--line)}.logo{font-weight:800;letter-spacing:.22em;font-size:19px}.logo span{color:var(--cyan)}.sub,.muted{color:var(--muted)}.status{color:var(--cyan);font-size:12px;letter-spacing:.13em}.hero{padding:42px 0 24px}.eyebrow{font-size:12px;color:var(--cyan);letter-spacing:.25em}h1{font-size:clamp(36px,6vw,64px);font-weight:550;letter-spacing:-.055em;margin:10px 0}p{color:var(--muted);line-height:1.65}.layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(300px,1fr);gap:20px}.panel{background:linear-gradient(145deg,#151e2b,#101620);border:1px solid var(--line);border-radius:20px;padding:24px}.visual{position:relative;min-height:330px;overflow:hidden;background:radial-gradient(ellipse at center,#18303e,#0c1420 65%);border-radius:16px;display:grid;place-items:center}canvas{position:absolute;width:100%;height:100%;inset:0}.visual-label{position:relative;pointer-events:none;text-align:center;text-shadow:0 2px 15px #07111d}.big{font-size:58px;letter-spacing:-.06em;font-weight:300}.visual-label small{color:var(--muted);letter-spacing:.15em}.controls{display:flex;gap:12px;align-items:center;justify-content:center;margin-top:22px}.btn{background:#1b2837;color:var(--text);border:1px solid #354457;border-radius:12px;padding:13px 20px;cursor:pointer;font:inherit}.btn:hover{border-color:var(--cyan)}.primary{background:var(--cyan);color:#06151a;border-color:var(--cyan);font-weight:700;min-width:155px}.tabs{display:flex;background:#0a111b;padding:5px;border-radius:12px;gap:5px}.tab{border:0;color:var(--muted);background:transparent;padding:11px 15px;border-radius:9px;cursor:pointer;flex:1}.tab.active{background:#263447;color:#fff}h2{font-size:17px;font-weight:600;margin:0 0 20px}.field{margin:23px 0}.field .flex{margin-bottom:12px}.value{font-variant-numeric:tabular-nums;color:var(--cyan)}input[type=range]{width:100%;accent-color:var(--cyan);cursor:pointer}.preset-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.preset{background:#0d1520;border:1px solid var(--line);border-radius:12px;padding:14px;text-align:left;color:var(--text);cursor:pointer}.preset strong{display:block;font-size:15px;margin-bottom:6px}.preset small{color:var(--muted)}.preset.selected{border-color:var(--cyan);background:#172a35}.section{margin-top:20px}.chakra-list{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;margin:20px 0}.chakra{height:44px;border-radius:9px;border:1px solid #3b4656;cursor:pointer;opacity:.5}.chakra.on{opacity:1;outline:2px solid #fff5;outline-offset:2px}.radio{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:13px}.radio label{cursor:pointer}.hidden{display:none}.foot{margin-top:25px;font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}select{background:#0c1420;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:10px;font:inherit}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}@media(max-width:800px){.layout{grid-template-columns:1fr}.hero{padding-top:25px}.visual{min-height:280px}.shell{padding:18px 14px 35px}.panel{padding:18px}.big{font-size:45px}}@media(max-width:560px){header{flex-wrap:wrap;gap:12px}.logo{font-size:16px}.status{font-size:10px}.hero h1{font-size:clamp(30px,9vw,46px)}.hero p{font-size:14px}.panel{padding:15px;border-radius:15px}.visual{min-height:235px}.big{font-size:40px}.controls{gap:8px}.btn{padding:12px 14px}.primary{min-width:0;flex:1}.preset-grid{gap:8px}.preset{padding:12px}.chakra-list{gap:4px}.chakra{height:40px}.flex{gap:8px}.foot{font-size:11px}.language{margin-left:auto}}@media(max-width:380px){.logo span:last-child{display:none}.big{font-size:36px}.controls .btn{padding:10px 12px}}.language{display:flex;align-items:center;gap:5px;border:1px solid var(--line);padding:4px;border-radius:10px}.language button{border:0;background:transparent;color:var(--muted);padding:6px 9px;border-radius:6px;cursor:pointer;font-weight:650}.language button.active{background:#263447;color:var(--cyan)}input[type=range]{touch-action:pan-y;min-height:28px}button{touch-action:manipulation}.chakra-aura{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .9s ease;background:radial-gradient(circle at 50% 50%,var(--chakra-glow,rgba(116,229,228,.22)) 0%,transparent 65%);filter:blur(18px);transform:scale(.82)}.visual.chakra-playing .chakra-aura{opacity:1;animation:chakra-breathe 4.8s ease-in-out infinite}.visual.chakra-playing{transition:background 1.2s ease}.chakra-visual-name{margin-top:12px;font-size:12px;letter-spacing:.14em;font-weight:600;color:var(--chakra-text,var(--cyan));min-height:16px;transition:color .7s ease}.chakra-visual-name:empty{display:none}.chakra{position:relative;transition:opacity .3s ease,box-shadow .6s ease,transform .6s ease}.chakra.sounding{opacity:1;box-shadow:0 0 0 2px #ffffff77,0 0 20px 4px var(--active-glow);animation:chakra-chip 3.2s ease-in-out infinite}.chakra:not(.on){animation:none;box-shadow:none}@keyframes chakra-breathe{0%,100%{transform:scale(.77);filter:blur(20px)}50%{transform:scale(1.22);filter:blur(12px)}}@keyframes chakra-chip{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}@media(prefers-reduced-motion:reduce){.visual.chakra-playing .chakra-aura,.chakra.sounding{animation:none}}@media(max-width:560px){.chakra-visual-name{font-size:11px;letter-spacing:.08em}.chakra.sounding{box-shadow:0 0 0 2px #ffffff77,0 0 12px 2px var(--active-glow)}}.brand{display:flex;flex-direction:column;align-items:flex-start;gap:5px}.brand-credit{font-size:11px;letter-spacing:.09em;color:var(--muted);font-weight:500}@media(max-width:560px){.brand-credit{font-size:10px}}.ambient-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:14px 0 8px}.ambient-name{font-weight:650;font-size:14px}.ambient-description{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.5}.ambient-toggle{appearance:none;width:42px;height:24px;border-radius:20px;background:#263447;border:1px solid var(--line);position:relative;cursor:pointer;flex-shrink:0}.ambient-toggle:before{content:"";position:absolute;width:16px;height:16px;left:3px;top:3px;background:#8593a7;border-radius:50%;transition:transform .2s,background .2s}.ambient-toggle:checked{background:#1c6268;border-color:var(--cyan)}.ambient-toggle:checked:before{transform:translateX(18px);background:var(--cyan)}.ambient-level{margin:8px 0 17px}.ambient-level .flex{font-size:12px}.ambient-divider{border-top:1px solid var(--line);margin:14px 0}.ambient-note{font-size:11px;color:var(--muted);line-height:1.5;margin-top:8px}.info-panel{width:100%;margin-top:20px;box-sizing:border-box}.info-narrow{display:none}@media(max-width:800px){.info-wide{display:none}.info-narrow{display:block}}</style><style id="quantum-quiet-design">:root{--bg:#0d161b;--panel:#132127;--line:#283b42;--text:#eaf4f3;--muted:#91a8ad;--cyan:#a7dad6;--purple:#9cb8ce;color-scheme:dark}html{scroll-behavior:smooth}body{background:radial-gradient(ellipse 72% 38% at 50% -12%,#1a343a 0%,#101d23 44%,#0d161b 100%);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}.shell{max-width:1390px;padding:24px 32px 56px}header{border-bottom:1px solid #283b42;padding:5px 0 23px;gap:16px}.logo{font-size:17px;letter-spacing:.17em;font-weight:650}.logo span{color:#a7dad6}.brand-credit{font-size:11px;color:#7e9b9e}.language{margin-left:auto;background:#132127;border-color:#2a4046;border-radius:12px}.language button.active{background:#2a444a;color:#d4f1ed}.status{font-size:11px;letter-spacing:.06em;color:#a7dad6}.hero{padding:28px 0 28px;max-width:830px}.hero .eyebrow{font-size:10px;letter-spacing:.19em;color:#84b9b6}.hero h1{font-size:clamp(27px,3.3vw,43px);font-weight:420;letter-spacing:-.045em;margin:7px 0 4px}.hero p{font-size:13px;margin:0;line-height:1.6;max-width:650px;color:#8ea9ac}.layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(315px,1fr);gap:18px;align-items:start}.workspace-main,.workspace-side{display:flex;flex-direction:column;gap:18px;min-width:0}.panel{background:#132127;border:1px solid #283b42;border-radius:18px;padding:23px;box-shadow:0 8px 28px #050e121c}.section{margin-top:0}.stage-panel{padding:18px;background:linear-gradient(160deg,#16262c,#111e24)}.stage-panel>.flex:first-child{padding:5px 5px 0}.stage-panel .eyebrow{color:#a7dad6;font-size:10px;letter-spacing:.16em}.stage-panel .muted{color:#829da2}.visual{min-height:355px;border:1px solid #29434a;border-radius:16px;background:radial-gradient(ellipse at center,#213b42 0%,#14262d 45%,#0e1b21 85%)}.visual:after{content:"";pointer-events:none;position:absolute;inset:12%;border:1px solid #a7dad60b;border-radius:50%}.visual-label{text-shadow:0 4px 20px #08191b}.big{font-size:clamp(52px,5vw,77px);font-weight:280;color:#eef8f5;letter-spacing:-.065em;font-variant-numeric:tabular-nums}.visual-label small{color:#a6c5c3;font-size:11px;letter-spacing:.16em}.chakra-visual-name{color:#c6e3de}.controls{margin:18px 0 5px;gap:10px}.btn{background:#1c3037;border:1px solid #334c54;border-radius:11px;color:#d8e9e8;min-height:46px;transition:background .2s,border-color .2s,transform .2s}.btn:hover{border-color:#8ac5c1;background:#263e44}.btn:active{transform:scale(.98)}.btn.primary{background:#a7dad6;color:#11262b;border-color:#a7dad6;min-width:185px;font-weight:650}.btn.primary:hover{background:#c1e9e4}.stage-caption{text-align:center;font-size:10px;color:#66888d;letter-spacing:.16em;margin:12px 0 0}.mode-panel{padding:24px}.tabs{background:#0e1b21;border:1px solid #243a41;border-radius:12px;padding:4px}.tab{color:#9eb8ba;font-weight:550}.tab.active{background:#2b464d;color:#eff8f7;box-shadow:0 2px 10px #0002}.field{margin:20px 0}.field .flex{margin-bottom:9px}.field label{color:#c7dadb;font-size:13px}.value{color:#b4deda;font-size:13px;font-variant-numeric:tabular-nums}input[type=range]{accent-color:#a7dad6;min-height:24px}select{background:#102027;border-color:#344c53;color:#dceae8;border-radius:9px;padding:9px 12px;max-width:100%}.chakra-list{gap:8px}.chakra{border-radius:10px;opacity:.65}.chakra.on{opacity:1}.radio{color:#a9bfc1}h2{font-size:15px;font-weight:600;letter-spacing:-.01em;margin-bottom:17px;color:#e7f2f0}.presets-panel{padding:22px}.preset-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.preset{background:#172930;border:1px solid #2d454b;border-radius:11px;padding:14px 12px;min-height:88px;transition:background .2s,border-color .2s}.preset:hover{background:#20383f;border-color:#699b9d}.preset strong{font-size:12px;line-height:1.4;color:#dce9e8}.preset small{font-size:11px;color:#90aeb1}.preset.selected{border-color:#a7dad6;background:#264249}.session-panel{padding:24px}.session-panel .mixer-eyebrow{font-size:10px;letter-spacing:.15em;color:#779da1;margin-top:-7px;margin-bottom:15px}.session-panel .field{margin:17px 0 21px}.session-panel .field:nth-of-type(5){border-top:1px solid #2b4147;padding-top:18px;margin-top:25px}.session-panel>.flex:last-child{padding-top:8px;border-top:1px solid #293d43;font-size:12px}.ambient-panel{padding:24px}.ambient-row{margin:13px 0 9px}.ambient-name{font-size:13px;color:#e2efec;font-weight:600}.ambient-description,.ambient-note{color:#829da1;font-size:11px}.ambient-toggle{background:#283f45;border-color:#385158}.ambient-toggle:checked{background:#427c7b;border-color:#a7dad6}.ambient-toggle:checked:before{background:#e4f8f4}.ambient-level{margin:12px 0 18px}.ambient-divider{border-color:#2b4248}.listening-note{padding:19px 22px;background:#111f25}.listening-note h2{font-size:13px;color:#b9d4d2;margin-bottom:8px}.listening-note p{color:#819ea2;line-height:1.6}.foot{margin-top:24px;border-top:1px solid #283b42;padding-top:18px;font-size:11px;color:#7c969a}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #b3e5df;outline-offset:3px}@media(max-width:1050px){.layout{grid-template-columns:minmax(0,1.35fr) minmax(285px,1fr)}.shell{padding:22px 20px 45px}.preset-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.visual{min-height:315px}}@media(max-width:760px){.layout{grid-template-columns:minmax(0,1fr)}.workspace-main,.workspace-side{gap:14px}.hero{padding:24px 0 21px}.visual{min-height:290px}.preset-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.panel{padding:20px}.stage-panel{padding:14px}.session-panel .field:nth-of-type(5){margin-top:20px}}@media(max-width:480px){.shell{padding:14px 12px 32px}.hero h1{font-size:31px}.hero p{font-size:12px}.panel{border-radius:15px;padding:16px}.stage-panel{padding:11px}.visual{min-height:255px}.big{font-size:49px}.controls{gap:8px}.controls .btn{padding:10px 13px;min-height:43px}.controls .btn.primary{min-width:0;flex:1}.preset{min-height:76px}.status{font-size:10px}.logo{font-size:15px}.stage-caption{font-size:9px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.preset,.tab{transition:none}}</style><style id="contextual-chakra-design">.chakra-quick-actions{display:flex;flex-wrap:wrap;gap:10px}.chakra-quick-actions .btn{flex:1;min-width:145px;font-size:12px}.chakra-quick-hint{font-size:12px;color:var(--muted);margin:12px 0 18px}.chakra-modulation{border-top:1px solid var(--line);padding-top:13px}.chakra-modulation strong{font-size:13px;font-weight:600}.mod-bands{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px}.mod-bands button{background:#172930;color:#a9c8c8;border:1px solid #30484e;border-radius:9px;padding:8px 11px;font-size:12px;cursor:pointer}.mod-bands button.selected{background:#29494b;color:#e8f8f4;border-color:#a7dad6}#chakraModControls{padding-top:1px}#chakraModControls input[type=range]{width:100%}</style><style id="solfeggio-chakra-tiles">.chakra-list{gap:8px}.chakra{height:55px;position:relative;overflow:visible;border:1px solid #ffffff33;border-radius:11px;opacity:.35}.chakra.on{opacity:.9}.chakra.chosen{outline:2px solid #e7faf5;outline-offset:2px}.chakra-select{display:block;width:100%;height:100%;border:0;border-radius:inherit;background:transparent;color:#101b21;font-size:17px;font-weight:750;cursor:pointer;padding:13px 3px 4px}.chakra-select:disabled{cursor:not-allowed}.chakra-enable{appearance:none;position:absolute;top:3px;right:3px;width:17px;height:17px;margin:0;border:1.5px solid #ecf9f3;background:#172a30c9;border-radius:5px;cursor:pointer;z-index:2}.chakra-enable:checked{background:#e8f7f2;border-color:#e8f7f2}.chakra-enable:checked:after{content:'✓';position:absolute;inset:-2px 0 0 2px;font-size:13px;color:#163139;font-weight:900}.chakra-enable:focus-visible{outline:2px solid white;outline-offset:2px}.chakra.sounding{box-shadow:0 0 0 2px #ffffff77,0 0 20px 4px var(--active-glow)}.info-panel{width:100%;margin-top:20px}.info-panel h2{margin:0 0 18px}.info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 26px}.info-item{display:flex;align-items:flex-start;gap:14px;padding:18px 0;border-top:1px solid var(--line);min-width:0}.info-item-number{display:inline-flex;align-items:center;justify-content:center;flex:0 0 32px;height:32px;border:1px solid #36545a;border-radius:10px;color:var(--cyan);font-size:10px;letter-spacing:.08em;font-weight:650}.info-item h3{font-size:13px;font-weight:650;color:var(--text);margin:0 0 7px}.info-item p{font-size:12px;line-height:1.7;color:var(--muted);margin:0;max-width:52ch}@media(max-width:680px){.info-grid{grid-template-columns:1fr}.info-item{padding:16px 0}.info-panel{margin-top:18px}}</style><style id="chakra-visual-fix">.chakra,.chakra.on{opacity:.36;filter:saturate(.46) brightness(.7);transition:opacity .3s ease,filter .3s ease,box-shadow .3s ease}.chakra:not(.on){opacity:.16;filter:saturate(.2) brightness(.5)}.chakra.sounding{opacity:1;filter:saturate(1.12) brightness(1.12);box-shadow:0 0 0 2px #ffffff80,0 0 19px 4px var(--active-glow)}.chakra.chosen{outline:none!important}.chakra-select:focus:not(:focus-visible){outline:none}.chakra.sounding .chakra-select{color:#071519}@media(prefers-reduced-motion:reduce){.chakra{transition:none}}</style><style>.norebo-langs{display:flex;gap:3px;padding:3px;border:1px solid #314454;border-radius:9px;margin-left:auto}.norebo-langs button{border:0;background:transparent;color:#9bb5c4;padding:6px 9px;border-radius:6px;cursor:pointer;font:700 12px system-ui}.norebo-langs button.active{background:#2a444a;color:#e9f4f8}.norebo-langs button:focus-visible{outline:2px solid #9bd9ce;outline-offset:2px}input[type=range]{touch-action:pan-y;overscroll-behavior:contain;-webkit-tap-highlight-color:transparent}input[type=range]::-webkit-slider-thumb{transition:none!important;animation:none!important;will-change:auto!important}@media(pointer:coarse){input[type=range]{min-height:36px}}</style><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAEu0lEQVR42u3cMW7UQBSHccdKRUXLFXKLtOlpEBKHoOAMFBwCCdHQ03ILzkMRaRVtFsfxzsx7M/P7KpAie+35/H9vZrx78+btuwU4yuoWgEAgEAgEAgEEAoFAIBAIIBAIBAKBQACBQCAQCAQCCAQCgUDomNuEn+nTzx8G5iLfP3zM9pFuknwrgzSd+hQs0EVvfn3+Qo6LvP/2NZtGYQKdqUOa62UKMSlAIOpUNamxRq0FOtnDm3oatXSonUBPg4c9w2jUSCDBE6JRA4dW9ozH6T43WBypnkCP10CdwCiqmkMre4aPoqo5tLKHQxkFYs8kDq3s4VAugWyLZqb46KxVlUfCuX1qgRSv2QrZWtweTFXI1kqaY5JCtpaVmj2zFTIv1SOBQLqfaTuhkgmkfk3YCSlhiBZI+zxzKy2BQCAQCJMKpAGavA2SQFDCQCAQCAQCCAQCgUAgEEAgEAgEAoEAAoFAIBAIBBAIBAKBQCAQCCAQCAQCgUDAPm7dgov8/vvn9O+Hu3s3RAIdtOf5f5E9gf43YG2S4OLZf//9I4f6SKCNx71BEsSenUAVx6/BKJ4d/OHu/ix1OJS6hD0fv8DsOZ394e6eN/010WePfm2ZNtw1C+tDoBenzc0Cafvs0iijQHkWXTbOLoeSCrT/ma4UQqdD7VRECCUSaLv5aFnIBEz3TfSBIbzeoVcdQSeUdxq/356zeXWRNeLM8RO7Lp86gV7bfBS/dweCpPGw5V8Zjy9hx4ak4EAeO1Tsvkoeh8IEuv7ir+xIkvcxF/dVEu6uBCfQlUES0v00aKVftTIe69Ca4fFqf8COplEvrsvHXk73L5RdE0L51372r4xHORQg0OHJV6lQCW+/tj/b/vvz9A+iHoYRXmk9NpwJ4+fAnuDjnwVey23geFcag43jd9H6RK2KzZtAOy0pu+dfvIp1uj0yiEAvdpRPG4vij2zBse9uT3ecBHru0Glc8z/c/e7ODlXCnj++TzWqeroiZ+nxlZLReqDtCpVzhLp+OWTMb6buWb3N1rJ0+kbbsN+NbzYep/eTjr2Z1Pu7ab4bDwJ1S6VdHQL1Wi4nfFeaQBO1awQaSoIx4opAtdqaGeKHQDEhVHV9nECDh9Bgv75IoKbTsaovBRBo8BwacpJPoEYOjbpE5Heiy1exF70Z6ZdAJFDr6dhgvyNDoFoONXulhECzRNGQv2GlB4osZxIIs0MgEAgEAoFAIIBAIBAIBAIBBAKBQCAQCCAQCAQCgUAAgUAgEAgEAoEO8v3Dx2VZ3n/76lZ2x+OoPY6gBIISBgKBQFcVVEzVAJUR6PoPAQkEApnMq18SCH2XMCHUS/ykE0gr3RelxmtNLjjSdj/lBRJCeiDTMfGTYxbGoRnsqSKQQjb8zKt6AilkY8+8WpQwDg1fvOoKxKEZ7FmW5ebN23dVL+DTzx/Lsvz6/MVYRvU9VbvS6gKdHKLRePYsbTZTT9egnA1mT6MEOsshUTSGOq0FUs7aqLO0XYprLdBZFDGpX3XCBKJRcW+i7IkU6KJGZHqtNEv03lGwQNsmYc/cNpYsApGpI2myC4SO8K0MEAgEAoFAIIBAIBAIBAIBBAKBQCAQCCAQCAQCgUAAgUAgBPMPd64hi63vWRcAAAAASUVORK5CYII="></head><body><div class="shell"><header><div class="brand"><div class="logo"><span>N</span>OR<span>E</span>B<span>O</span> · BIN<span>A</span>URAL <span style="font-size:10px;letter-spacing:.15em;color:var(--muted)">/ SOUND LAB</span></div><div class="brand-credit">by @zeroscrypt</div></div><div class="norebo-langs" aria-label="Language"><button type="button" data-site-lang="ru">RU</button><button type="button" data-site-lang="en">EN</button></div><div class="status" id="status">● ГОТОВ К СЕССИИ</div></header><section class="hero quiet-hero"><div class="eyebrow">PERSONAL AUDIO ENVIRONMENT / 01</div><h1>Пространство звука.</h1><p>Настройте бинауральные биения под себя. Два независимых канала, точная частота и атмосфера без лишнего шума.</p></section><main class="layout"><div class="workspace-main"><section class="panel stage-panel"><div class="flex" style="margin-bottom:20px"><div><div class="eyebrow">LIVE FREQUENCY FIELD</div><div class="muted" style="font-size:12px;margin-top:7px">Стереосинтез в реальном времени</div></div><div class="status" id="signal">● IDLE</div></div><div class="visual" id="visualField"><div aria-hidden="true" class="chakra-aura" id="chakraAura"></div><canvas id="viz"></canvas><div class="visual-label"><div class="big" id="mainHz">8.0 <span style="font-size:20px">Hz</span></div><small id="band">ALPHA / РАССЛАБЛЕНИЕ</small><div aria-live="polite" class="chakra-visual-name" id="chakraVisualName"></div></div></div><div class="controls"><button class="btn" id="reset" title="Остановить">■</button><button class="btn primary" id="play">▶ Запустить</button><button class="btn" id="mute" title="Выключить звук">♫</button></div><div class="stage-caption">STEREO RESONANCE · REAL-TIME AUDIO</div></section><section class="panel mode-panel"><div class="tabs"><button class="tab active" id="freeTab">Свободный</button><button class="tab" id="chakraTab">Чакры</button></div><div id="free"><div class="field"><div class="flex"><label for="carrier">Несущая частота</label><span class="value" id="carrierVal">220 Hz</span></div><input id="carrier" max="600" min="80" step="1" type="range" value="220"/></div><div class="field"><div class="flex"><label for="beat">Частота биений</label><span class="value" id="beatVal">8.0 Hz</span></div><input id="beat" max="40" min="0.5" step="0.5" type="range" value="8"/></div><div class="flex muted" style="font-size:12px;border-top:1px solid var(--line);padding-top:16px"><span id="leftHz">L · 220 Hz</span><span id="rightHz">R · 228 Hz</span></div></div><div class="hidden" id="chakras"><p style="font-size:13px">Семь тональных центров. Выберите активные и способ воспроизведения.</p><div class="chakra-list" id="chakraList"></div><div class="radio"><label><input checked="" name="chakraMode" type="radio" value="sequence"/> По очереди</label><label><input name="chakraMode" type="radio" value="together"/> Вместе</label><label><input name="chakraMode" type="radio" value="accumulate"/> Накопление</label></div><div class="field"><div class="flex"><label for="chakraStep">Смена центра</label><span class="value" id="chakraStepVal">60 сек</span></div><input id="chakraStep" max="180" min="10" step="10" type="range" value="60"/></div><div class="muted" id="chakraCurrent" style="font-size:12px">Активен: Корень</div></div></section><section class="panel section presets-panel"><h2>Быстрые состояния</h2><div class="preset-grid" id="presets"><button class="preset" data-beat="2" data-carrier="180"><strong>Глубокий отдых</strong><small>Delta · 2 Hz</small></button><button class="preset" data-beat="6" data-carrier="200"><strong>Спокойствие</strong><small>Theta · 6 Hz</small></button><button class="preset selected" data-beat="8" data-carrier="220"><strong>Расслабление</strong><small>Alpha · 8 Hz</small></button><button class="preset" data-beat="18" data-carrier="240"><strong>Концентрация</strong><small>Beta · 18 Hz</small></button></div><div id="chakraQuick" class="hidden"><div class="chakra-quick-actions"><button type="button" class="btn" id="chakraRestart">↺ Начать с первой</button><button type="button" class="btn" id="chakraNext">→ Следующая чакра</button></div><p class="chakra-quick-hint" id="chakraQuickHint">Быстрое управление последовательностью. Выбор центров и интервал — выше.</p><div class="chakra-modulation"><div class="ambient-row"><div><strong id="modTitle">Бинауральная модуляция</strong><div class="ambient-description" id="modDescription">Дополнительная разность частот для чакр</div></div><input type="checkbox" id="chakraModOn" class="ambient-toggle" aria-label="Enable chakra binaural modulation"></div><div id="chakraModControls" class="hidden"><div class="mod-bands" id="chakraModBands"><button type="button" data-modbeat="2">Delta</button><button type="button" data-modbeat="6">Theta</button><button type="button" data-modbeat="8" class="selected">Alpha</button><button type="button" data-modbeat="18">Beta</button><button type="button" data-modbeat="35">Gamma</button></div><div class="flex" style="margin-top:12px"><label for="chakraModBeat" id="chakraModBeatLabel">Разность частот</label><span class="value" id="chakraModBeatVal">8.0 Hz</span></div><input id="chakraModBeat" type="range" min="0.5" max="40" step="0.5" value="8"></div></div></div></section></div><div class="workspace-side"><section class="panel section session-panel"><h2>Сессия</h2><div class="mixer-eyebrow">OUTPUT MIXER / MASTER + SOURCES</div><div class="field"><div class="flex"><label for="volume">Мастер-громкость</label><span class="value" id="volumeVal">30%</span></div><input id="volume" max="100" min="0" type="range" value="30"/></div><div class="field"><div class="flex"><label for="beatLevel">Уровень биений</label><span class="value" id="beatLevelVal">50%</span></div><input id="beatLevel" max="100" min="0" type="range" value="50"/></div><div class="field"><div class="flex"><label for="chakraLevel">Уровень чакр</label><span class="value" id="chakraLevelVal">50%</span></div><input id="chakraLevel" max="100" min="0" type="range" value="50"/></div><div class="field"><div class="flex"><label for="duration">Таймер</label><select id="duration"><option value="0">Без ограничения</option><option value="5">5 минут</option><option value="15">15 минут</option><option selected="" value="30">30 минут</option><option value="60">60 минут</option><option value="90">90 минут</option></select></div></div><div class="flex"><span class="muted">Прошло / осталось</span><span class="value" id="timer">00:00 / 30:00</span></div></section><section class="panel section ambient-panel" id="ambientPanel"><div class="ambient-row"><h2 id="ambientTitle" style="margin:0">Ambient instruments</h2><input aria-label="Enable ambient background" class="ambient-toggle" id="ambientOn" type="checkbox"/></div><div class="ambient-note" id="ambientModeNote">Ambient and binaural beats can play together. Off by default.</div><div class="ambient-row"><div><div class="ambient-name" id="bowlsName">Singing bowls</div><div class="ambient-description" id="bowlsDesc">Sustained rim singing</div></div><input aria-label="Singing bowls" class="ambient-toggle" id="bowlsOn" type="checkbox"/></div><div class="ambient-level"><div class="flex"><label for="bowlsLevel" id="bowlsLevelLabel">Level</label><span class="value" id="bowlsLevelVal">25%</span></div><input id="bowlsLevel" max="100" min="0" type="range" value="25"/></div><div class="ambient-divider"></div><div class="ambient-row"><div><div class="ambient-name" id="glassName">Glass chimes</div><div class="ambient-description" id="glassDesc">Rare crystalline accents during flute rests</div></div><input aria-label="Glass chimes" class="ambient-toggle" id="glassOn" type="checkbox"/></div><div class="ambient-level"><div class="flex"><label for="glassLevel" id="glassLevelLabel">Level</label><span class="value" id="glassLevelVal">12%</span></div><input id="glassLevel" max="100" min="0" type="range" value="12"/></div><div class="ambient-divider"></div><div class="ambient-row"><div><div class="ambient-name" id="gongName">Gong</div><div class="ambient-description" id="gongDesc">Deep metallic resonance · evolving swells</div></div><input aria-label="Gong" class="ambient-toggle" id="gongOn" type="checkbox"/></div><div class="ambient-level"><div class="flex"><label for="gongLevel" id="gongLevelLabel">Level</label><span class="value" id="gongLevelVal">20%</span></div><input id="gongLevel" max="100" min="0" type="range" value="20"/></div><div class="ambient-divider"></div><div class="ambient-row"><div><div class="ambient-name" id="noiseName">White noise</div><div class="ambient-description" id="noiseDesc">Soft, continuous broadband sound</div></div><input aria-label="White noise" class="ambient-toggle" id="noiseOn" type="checkbox"/></div><div class="ambient-level"><div class="flex"><label for="noiseLevel" id="noiseLevelLabel">Level</label><span class="value" id="noiseLevelVal">15%</span></div><input id="noiseLevel" max="100" min="0" type="range" value="15"/></div><div class="ambient-note" id="ambientNote">Procedurally synthesized in your browser. No recordings or downloads.</div></section></div></main><section class="panel section info-panel listening-note" aria-labelledby="infoHeading"><h2 id="infoHeading">Информация</h2><div class="info-grid"><article class="info-item"><span class="info-item-number" aria-hidden="true">01</span><div><h3 id="infoHeadphonesTitle">Наушники</h3><p id="infoHeadphonesText">Для восприятия бинауральных биений используйте стереонаушники. Фоновые инструменты можно слушать и через динамики.</p></div></article><article class="info-item"><span class="info-item-number" aria-hidden="true">02</span><div><h3 id="infoVolumeTitle">Громкость</h3><p id="infoVolumeText">Начинайте с низкого уровня. Звук должен оставаться комфортным, без давления и неприятных ощущений.</p></div></article><article class="info-item"><span class="info-item-number" aria-hidden="true">03</span><div><h3 id="infoBeatsTitle">Бинауральные биения</h3><p id="infoBeatsText">Возникают при подаче немного разных частот в левое и правое ухо. Их влияние на сон, внимание и настроение научно не гарантировано.</p></div></article><article class="info-item"><span class="info-item-number" aria-hidden="true">04</span><div><h3 id="infoSafetyTitle">Комфорт и безопасность</h3><p id="infoSafetyText">При дискомфорте остановите воспроизведение. Не используйте звук, требующий сосредоточенного прослушивания, во время управления транспортом.</p></div></article></div></section><div class="foot"><span>SOUND LAB · WEB AUDIO ENGINE · <strong style="color:var(--cyan);font-weight:700">NOREBO</strong></span><span>Звук создаётся локально · без регистрации и передачи аудиоданных</span></div></div><script>const $=id=>document.getElementById(id);
+const translations={
+ en:{statusReady:'● READY FOR SESSION',statusLive:'● SESSION ACTIVE',title:'Your space for sound.',intro:'Shape your binaural listening experience. Two stereo channels, precise frequency control and a quiet atmosphere.',live:'LIVE FREQUENCY FIELD',synthesis:'Real-time stereo synthesis',start:'▶ Start',pause:'Ⅱ Pause',presets:'Quick states',chakraQuickTitle:'Chakra controls',chakraRestart:'↺ Start from first',chakraNext:'→ Next chakra',chakraQuickHint:'Tap a chakra to start from it. Use the corner checkbox to exclude it.',modTitle:'Binaural modulation',modDescription:'Off: pure Solfeggio tone · On: stereo binaural difference',modBeatLabel:'Frequency difference',rest:'Deep rest',calm:'Calm',relax:'Relaxation',focus:'Focus',free:'Free mode',chakras:'Chakras',carrier:'Carrier frequency',beat:'Beat frequency',chakraDesc:'Solfeggio frequencies · tap a center to play from it; uncheck to exclude.',sequence:'Sequential',together:'Together',accumulate:'Layered',step:'Center interval',active:'Active',activePlural:'Active centers',session:'Session',volume:'Master volume',beatLevel:'Binaural level',chakraLevel:'Chakra level',timer:'Timer',unlimited:'Unlimited',minutes:'minutes',elapsed:'Elapsed / remaining',information:'Information',infoHeadphonesTitle:'Headphones',infoHeadphonesText:'Use stereo headphones to perceive binaural beats. Ambient instruments can also be played through speakers.',infoVolumeTitle:'Volume',infoVolumeText:'Start at a low level. Keep the sound comfortable, without pressure or unpleasant sensations.',infoBeatsTitle:'Binaural beats',infoBeatsText:'They arise when slightly different frequencies are played to the left and right ears. Effects on sleep, attention and mood are not scientifically guaranteed.',infoSafetyTitle:'Comfort and safety',infoSafetyText:'Stop playback if you feel discomfort. Avoid immersive listening while driving or operating vehicles.',disclaimer:'Use stereo headphones to perceive binaural beats. Start at a low volume. Effects on sleep, attention and mood are not scientifically guaranteed.',footer:'Sound is generated locally · no account or audio upload',seconds:'sec',centers:'centers',delta:'DELTA / DEEP REST',theta:'THETA / CALM',alpha:'ALPHA / RELAXATION',beta:'BETA / ACTIVITY',gamma:'GAMMA / HIGH FREQUENCIES',chakraBand:'CHAKRA / TONAL MODE',names:['Root','Sacral','Solar plexus','Heart','Throat','Third eye','Crown'],error:'Could not start audio: '},
+ ru:{statusReady:'● ГОТОВ К СЕССИИ',statusLive:'● СЕССИЯ АКТИВНА',title:'Пространство звука.',intro:'Настройте бинауральные биения под себя. Два независимых канала, точная частота и атмосфера без лишнего шума.',live:'ПОЛЕ ЧАСТОТ',synthesis:'Стереосинтез в реальном времени',start:'▶ Запустить',pause:'Ⅱ Пауза',presets:'Быстрые состояния',chakraQuickTitle:'Управление чакрами',chakraRestart:'↺ С первой чакры',chakraNext:'→ Следующая чакра',chakraQuickHint:'Нажмите на чакру, чтобы начать с неё. Галочка в углу исключает её из воспроизведения.',modTitle:'Бинауральная модуляция',modDescription:'Выкл.: чистый тон Solfeggio · Вкл.: бинауральная разность',modBeatLabel:'Разность частот',rest:'Глубокий отдых',calm:'Спокойствие',relax:'Расслабление',focus:'Концентрация',free:'Свободный',chakras:'Чакры',carrier:'Несущая частота',beat:'Частота биений',chakraDesc:'Частоты Solfeggio · нажмите на чакру для запуска с неё; снимите галочку, чтобы исключить.',sequence:'По очереди',together:'Вместе',accumulate:'Накопление',step:'Смена центра',active:'Активен',activePlural:'Активны',session:'Сессия',volume:'Мастер-громкость',beatLevel:'Уровень биений',chakraLevel:'Уровень чакр',timer:'Таймер',unlimited:'Без ограничения',minutes:'минут',elapsed:'Прошло / осталось',information:'Информация',infoHeadphonesTitle:'Наушники',infoHeadphonesText:'Для восприятия бинауральных биений используйте стереонаушники. Фоновые инструменты можно слушать и через динамики.',infoVolumeTitle:'Громкость',infoVolumeText:'Начинайте с низкого уровня. Звук должен оставаться комфортным, без давления и неприятных ощущений.',infoBeatsTitle:'Бинауральные биения',infoBeatsText:'Возникают при подаче немного разных частот в левое и правое ухо. Их влияние на сон, внимание и настроение научно не гарантировано.',infoSafetyTitle:'Комфорт и безопасность',infoSafetyText:'При дискомфорте остановите воспроизведение. Не используйте звук, требующий сосредоточенного прослушивания, во время управления транспортом.',disclaimer:'Для восприятия бинауральных биений используйте стереонаушники. Начните с низкой громкости. Эффекты на сон, внимание и настроение научно не гарантированы.',footer:'Звук создаётся локально · без регистрации и передачи аудиоданных',seconds:'сек',centers:'центров',delta:'DELTA / ГЛУБОКИЙ ОТДЫХ',theta:'THETA / СПОКОЙСТВИЕ',alpha:'ALPHA / РАССЛАБЛЕНИЕ',beta:'BETA / АКТИВНОСТЬ',gamma:'GAMMA / ВЫСОКИЕ ЧАСТОТЫ',chakraBand:'CHAKRA / ТОНАЛЬНЫЙ РЕЖИМ',names:['Корень','Сакральная','Солнечное сплетение','Сердце','Горло','Третий глаз','Корона'],error:'Не удалось запустить звук: '}
+};
+let language='ru',ctx=null,master=null,beatBus=null,chakraBus=null,androidMedia=null,androidStream=null,voices=[],playing=false,muted=false,started=0,elapsed=0,mode='free',chakraIndex=0,lastChakraStep=-1;
+const chakraData=[[396,'#f26767'],[417,'#f5a45b'],[528,'#f1d36a'],[639,'#64d7a1'],[741,'#67b9ed'],[852,'#7779ed'],[963,'#b88aee']];
+let selected=new Set([0,1,2,3,4,5,6]),chakraSequenceStart=0;const numeric=id=>Number($(id).value),pad=s=>String(Math.floor(s)).padStart(2,'0'),fmt=s=>pad(s/60)+':'+pad(s%60),T=()=>translations[language];
+function band(b){const t=T();return b<4?t.delta:b<8?t.theta:b<13?t.alpha:b<30?t.beta:t.gamma}
+function translate(){const t=T();document.documentElement.lang=language;document.querySelectorAll('[data-lang]').forEach(b=>{b.classList.toggle('active',b.dataset.lang===language);b.setAttribute('aria-pressed',String(b.dataset.lang===language))});const set=(selector,value)=>{const el=document.querySelector(selector);if(el)el.textContent=value};set('.hero h1',t.title);set('.hero p',t.intro);set('.panel .eyebrow',t.live);set('.panel .eyebrow + .muted',t.synthesis);document.querySelectorAll('.preset strong').forEach((e,i)=>e.textContent=[t.rest,t.calm,t.relax,t.focus][i]);set('#freeTab',t.free);set('#chakraTab',t.chakras);set('label[for=carrier]',t.carrier);set('label[for=beat]',t.beat);set('#chakras p',t.chakraDesc);document.querySelectorAll('input[name="chakraMode"]').forEach(r=>{r.parentElement.lastChild.textContent=' '+t[r.value]});set('label[for=chakraStep]',t.step);set('label[for=volume]',t.volume);set('label[for=beatLevel]',t.beatLevel);set('label[for=chakraLevel]',t.chakraLevel);set('label[for=duration]',t.timer);document.querySelectorAll('.info-panel h2').forEach(e=>e.textContent=t.information);set('.presets-panel h2',mode==='free'?t.presets:t.chakraQuickTitle);set('#chakraRestart',t.chakraRestart);set('#chakraNext',t.chakraNext);set('#chakraQuickHint',t.chakraQuickHint);set('#modTitle',t.modTitle);set('#modDescription',t.modDescription);set('#chakraModBeatLabel',t.modBeatLabel);set('.session-panel h2',t.session);document.querySelectorAll('.radio label').forEach(e=>{const r=e.querySelector('input[name="chakraMode"]');if(r)e.lastChild.textContent=' '+(t[r.value]||r.value)});document.querySelectorAll('#duration option').forEach(o=>o.textContent=o.value==='0'?t.unlimited:o.value+' '+t.minutes);document.querySelectorAll('.panel .flex .muted').forEach(e=>{if(e.textContent.includes('/')&&e.closest('.section'))e.textContent=t.elapsed});for(const key of ['infoHeadphonesTitle','infoHeadphonesText','infoVolumeTitle','infoVolumeText','infoBeatsTitle','infoBeatsText','infoSafetyTitle','infoSafetyText'])set('#'+key,t[key]);translateAmbient();set('.foot span:last-child',t.footer);$('play').textContent=playing?t.pause:t.start;$('status').textContent=playing?t.statusLive:t.statusReady;chakraData.forEach((d,i)=>{const b=$('chakraList').children[i];b.title=t.names[i]+' · '+d[0]+' Hz';b.querySelector('.chakra-select').setAttribute('aria-label',t.names[i]+' · '+d[0]+' Hz');b.querySelector('.chakra-enable').setAttribute('aria-label',(language==='ru'?'Включить ':'Enable ')+t.names[i])});updateLabels();}
+function updateLabels(){let b=numeric('beat'),c=numeric('carrier');$('carrierVal').textContent=c+' Hz';$('beatVal').textContent=b.toFixed(1)+' Hz';$('leftHz').textContent='L · '+c+' Hz';$('rightHz').textContent='R · '+(c+b)+' Hz';$('volumeVal').textContent=numeric('volume')+'%';$('beatLevelVal').textContent=numeric('beatLevel')+'%';$('chakraLevelVal').textContent=numeric('chakraLevel')+'%';$('chakraStepVal').textContent=numeric('chakraStep')+' '+T().seconds;$('chakraModBeatVal').textContent=numeric('chakraModBeat').toFixed(1)+' Hz';updateAudio();updateDisplay()}
+function updateDisplay(){if(mode==='free'){$('mainHz').innerHTML=numeric('beat').toFixed(1)+' <span style="font-size:20px">Hz</span>';$('band').textContent=band(numeric('beat'))}else{let ids=[...selected].sort((a,b)=>a-b),together=chakraPlayMode()==='together',layered=chakraPlayMode()==='accumulate';$('band').textContent=T().chakraBand;if(layered){const ordered=layeredIds(),count=playing?layeredCount():0;$('chakraCurrent').textContent=T().activePlural+': '+(playing?count:0);$('mainHz').innerHTML=count+' <span style="font-size:20px">'+T().centers+'</span>'}else if(together){$('chakraCurrent').textContent=T().activePlural+': '+ids.length;$('mainHz').innerHTML=ids.length+' <span style="font-size:20px">'+T().centers+'</span>'}else{if(!ids.includes(chakraIndex))chakraIndex=ids[0]??0;$('chakraCurrent').textContent=T().active+': '+(ids.length?T().names[chakraIndex]:'—');$('mainHz').innerHTML=(ids.length?chakraData[chakraIndex][0].toFixed(1):'—')+' <span style="font-size:20px">Hz</span>'}}updateChakraVisual()}
+function updateChakraVisual(){const visual=$('visualField'),name=$('chakraVisualName'),ids=[...selected].sort((a,b)=>a-b),together=chakraPlayMode()==='together',layered=chakraPlayMode()==='accumulate',ordered=layeredIds(),layerCount=playing?layeredCount():0;const active=playing&&mode==='chakra'&&ids.length>0;visual.classList.toggle('chakra-playing',active);const current=ids.includes(chakraIndex)?chakraIndex:ids[0];const color=together?'#b88aee':chakraData[current][1];visual.style.setProperty('--chakra-glow',hexRGBA(color,.38));visual.style.setProperty('--chakra-text',color);name.textContent=mode==='chakra'?(ids.length?(together?T().activePlural+': '+ids.map(i=>T().names[i]).join(' · '):layered?T().activePlural+': '+ordered.slice(0,layerCount).map(i=>T().names[i]).join(' · '):T().names[current]):'—'):'';document.querySelectorAll('#chakraList .chakra').forEach((b,i)=>{const sounding=active&&ids.includes(i)&&(together||layered&&ordered.slice(0,layerCount).includes(i)||!layered&&i===current);b.classList.toggle('sounding',sounding);b.classList.toggle('waiting',ids.includes(i)&&!sounding);b.style.setProperty('--active-glow',hexRGBA(chakraData[i][1],.45));b.setAttribute('aria-current',sounding?'true':'false')})}
+function hexRGBA(hex,alpha){const h=hex.replace('#','');return `rgba(${parseInt(h.slice(0,2),16)},${parseInt(h.slice(2,4),16)},${parseInt(h.slice(4,6),16)},${alpha})`}
+function createVoice(){const left=ctx.createOscillator(),right=ctx.createOscillator(),lg=ctx.createGain(),rg=ctx.createGain(),lp=ctx.createStereoPanner(),rp=ctx.createStereoPanner();lp.pan.value=-1;rp.pan.value=1;lg.gain.value=0;rg.gain.value=0;left.connect(lg).connect(lp).connect(beatBus);right.connect(rg).connect(rp).connect(beatBus);left.start();right.start();return {left,right,lg,rg}}
+function configurePlaybackSession(){try{if("audioSession" in navigator)navigator.audioSession.type="playback"}catch(e){console.debug("Audio session unavailable",e)}}
+// Chrome on Android grants background media focus more reliably to a real HTMLMediaElement.
+// Route the *actual* stereo synthesis through a MediaStream-backed audio element,
+// rather than playing an unrelated silent track. Never connect both outputs.
+const isAndroid=/Android/i.test(navigator.userAgent);
+function initAudio(){if(ctx)return;configurePlaybackSession();ctx=new (window.AudioContext||window.webkitAudioContext)();master=ctx.createGain();master.gain.value=0;beatBus=ctx.createGain();chakraBus=ctx.createGain();beatBus.connect(master);chakraBus.connect(master);
+if(isAndroid && ctx.createMediaStreamDestination){
+ androidStream=ctx.createMediaStreamDestination();master.connect(androidStream);
+ androidMedia=document.createElement('audio');androidMedia.autoplay=false;androidMedia.controls=false;androidMedia.playsInline=true;androidMedia.preload='auto';androidMedia.srcObject=androidStream.stream;
+ androidMedia.style.cssText='position:absolute;width:1px;height:1px;opacity:0;pointer-events:none';document.body.appendChild(androidMedia);
+ androidMedia.addEventListener('pause',()=>{if(playing && !androidMedia.ended){playing=false;elapsed=(performance.now()-started)/1000;updateAudio();$('play').textContent=T().start;$('signal').textContent='● IDLE';$('status').textContent=T().statusReady;updateMediaSession()}});
+}else master.connect(ctx.destination);
+for(let i=0;i<7;i++)voices.push(createVoice());initAmbient()}
+function ambientActive(){return ['bowls','glass','gong','noise'].some(id=>$(id+'On').checked)}
+function chakraDifference(){return $('chakraModOn').checked?numeric('chakraModBeat'):0}
+function chakraPlayMode(){return document.querySelector('input[name="chakraMode"]:checked').value}function layeredIds(){return [...selected].sort((a,b)=>a-b)}function layeredBaseCount(){return layeredIds().filter(i=>i<=chakraIndex).length}function layeredCount(){const ids=layeredIds();return Math.min(ids.length,layeredBaseCount()+Math.floor(elapsed/Math.max(1,numeric('chakraStep'))))}
+function updateAudio(){if(!ctx)return;const now=ctx.currentTime,fade=.035,frequencySmooth=.025;beatBus.gain.setTargetAtTime(numeric(mode==='free'?'beatLevel':'chakraLevel')/100,now,.035);master.gain.setTargetAtTime((playing||ambientActive())&&!muted?numeric('volume')/100:0,now,.035);voices.forEach(v=>{for(const param of [v.left.frequency,v.right.frequency,v.lg.gain,v.rg.gain])param.cancelScheduledValues(now)});let targets=[];if(mode==='free')targets=[[numeric('carrier'),numeric('beat')]];else{let ids=[...selected].sort((a,b)=>a-b);const together=document.querySelector('input[name="chakraMode"]:checked').value==='together';if(together)targets=ids.map(i=>[chakraData[i][0],chakraDifference()]);else if(chakraPlayMode()==='accumulate')targets=layeredIds().map(i=>[chakraData[i][0],chakraDifference()]);else if(ids.length){if(!ids.includes(chakraIndex))chakraIndex=ids[0];targets=[[chakraData[chakraIndex][0],chakraDifference()]]}}
+voices.forEach((v,i)=>{const target=targets[i],layered=mode==='chakra'&&chakraPlayMode()==='accumulate',stepSeconds=Math.max(1,numeric('chakraStep')),layerCount=layered?layeredCount():0,amp=target&&playing&&(!layered||i<layerCount)?.5/(layered?Math.sqrt(Math.max(1,layerCount)):Math.max(1,targets.length)):0;v.left.frequency.setTargetAtTime(target?target[0]:220,now,frequencySmooth);v.right.frequency.setTargetAtTime(target?target[0]+target[1]:228,now,frequencySmooth);v.lg.gain.setTargetAtTime(amp,now,layered?.18:fade);v.rg.gain.setTargetAtTime(amp,now,layered?.18:fade)});
+// Queue chakra transitions on the audio clock: background JS throttling cannot delay them.
+if(playing&&mode==='chakra'&&document.querySelector('input[name="chakraMode"]:checked').value==='sequence'){
+ const ids=[...selected].sort((a,b)=>a-b),stepSeconds=Math.max(1,numeric('chakraStep'));
+ if(ids.length){const base=elapsed,remaining=numeric('duration')*60;const first=Math.floor(base/stepSeconds)+1;
+ for(let k=first;k<first+Math.ceil(60/stepSeconds)+1;k++){const relative=k*stepSeconds-base;if(remaining&&k*stepSeconds>=remaining)break;const at=now+relative;if(at<=now)continue;const idx=ids[(chakraSequenceStart+k)%ids.length],freq=chakraData[idx][0];
+ const v=voices[0];v.left.frequency.setTargetAtTime(freq,at,.025);v.right.frequency.setTargetAtTime(freq+chakraDifference(),at,.025);
+ }}}
+
+
+// Layered sequence: each enabled chakra enters once and stays on until reset.
+if(playing&&mode==='chakra'&&chakraPlayMode()==='accumulate'){
+ const stepSeconds=Math.max(1,numeric('chakraStep')),remaining=numeric('duration')*60;
+ for(let i=layeredBaseCount();i<targets.length;i++){
+  const activation=(i-layeredBaseCount()+1)*stepSeconds;
+  if(activation<=elapsed||remaining&&activation>=remaining||activation>elapsed+60)continue;
+  const at=now+activation-elapsed;
+  const gain=.5/Math.sqrt(i+1);
+  for(let j=0;j<=i;j++){
+   voices[j].lg.gain.setTargetAtTime(gain,at,.18);
+   voices[j].rg.gain.setTargetAtTime(gain,at,.18);
+  }
+ }
+}
+
+}
+let stopGeneration=0;
+async function start(){const generation=stopGeneration;configurePlaybackSession();initAudio();const mediaStart=androidMedia?androidMedia.play():Promise.resolve();await Promise.all([ctx.resume(),mediaStart]);if(generation!==stopGeneration)return;playing=true;started=performance.now()-elapsed*1000;if(ambientActive())scheduleAmbient();lastChakraStep=-1;updateAudio();$('play').textContent=T().pause;$('signal').textContent='● LIVE AUDIO';$('status').textContent=T().statusLive;updateChakraVisual();updateMediaSession()}
+function pause(reset=false){if(playing)elapsed=(performance.now()-started)/1000;playing=false;if(androidMedia&&!androidMedia.paused&&!ambientActive())androidMedia.pause();updateAudio();if(reset)elapsed=0;$('play').textContent=T().start;$('signal').textContent='● IDLE';$('status').textContent=T().statusReady;updateTimer();updateChakraVisual();updateMediaSession()}
+function updateMediaSession(){if(!('mediaSession' in navigator))return;try{navigator.mediaSession.metadata=new MediaMetadata({title:'Binaural Sound Lab',artist:'NOREBO',album:'Binaural Web Audio Engine'});navigator.mediaSession.playbackState=(playing||ambientActive())?'playing':'paused'}catch(e){console.debug('Media Session unavailable',e)}}
+if('mediaSession' in navigator){try{navigator.mediaSession.setActionHandler('play',()=>start().catch(console.error));navigator.mediaSession.setActionHandler('pause',()=>pause());navigator.mediaSession.setActionHandler('stop',()=>stopAll())}catch(e){console.debug('Media Session handlers unavailable',e)}}
+$('play').onclick=()=>playing?pause():start().catch(e=>alert(T().error+e.message));$('reset').onclick=()=>stopAll();$('mute').onclick=()=>{muted=!muted;$('mute').textContent=muted?'♪̸':'♫';updateAudio()};
+function updateTimer(){const d=numeric('duration')*60;$('timer').textContent=fmt(elapsed)+' / '+(d?fmt(Math.max(0,d-elapsed)):'∞')}
+function syncPlayback(){if(playing){elapsed=(performance.now()-started)/1000;const d=numeric('duration')*60;if(d&&elapsed>=d)pause(true);else if(mode==='chakra'){if(chakraPlayMode()==='sequence'){const step=Math.floor(elapsed/numeric('chakraStep'));if(step!==lastChakraStep){lastChakraStep=step;let ids=[...selected].sort((a,b)=>a-b);if(ids.length){chakraIndex=ids[(chakraSequenceStart+step)%ids.length];updateDisplay()}}}else if(chakraPlayMode()==='accumulate'){const count=layeredCount();if(count!==lastChakraStep){lastChakraStep=count;updateDisplay()}}}}updateTimer()}let lastTimerPaint=0;
+function tick(t){if(!document.hidden&&t-lastTimerPaint>=250){syncPlayback();lastTimerPaint=t}requestAnimationFrame(tick)}
+requestAnimationFrame(tick);
+setInterval(()=>{
+ if(document.hidden)syncPlayback();
+ if(playing&&mode==='chakra'&&document.querySelector('input[name="chakraMode"]:checked').value!=='together')updateAudio();
+ if(ambientActive())scheduleAmbient();
+},20000);
+setInterval(()=>{if(ambientActive())scheduleAmbient()},3000);
+['carrier','beat','volume','beatLevel','chakraLevel','chakraStep'].forEach(id=>$(id).addEventListener('input',updateLabels));$('duration').onchange=updateTimer;
+$('presets').addEventListener('click',e=>{let b=e.target.closest('[data-beat]');if(!b)return;$('beat').value=b.dataset.beat;$('carrier').value=b.dataset.carrier;document.querySelectorAll('.preset').forEach(x=>x.classList.toggle('selected',x===b));updateLabels()});
+function switchMode(m){mode=m;if(m==='chakra'){const ids=[...selected].sort((a,b)=>a-b);chakraSequenceStart=Math.max(0,ids.indexOf(chakraIndex));elapsed=0;if(playing)started=performance.now();lastChakraStep=-1;}$('presets').classList.toggle('hidden',m!=='free');$('chakraQuick').classList.toggle('hidden',m!=='chakra');document.querySelector('.presets-panel h2').textContent=m==='free'?T().presets:T().chakraQuickTitle;$('free').classList.toggle('hidden',m!=='free');$('chakras').classList.toggle('hidden',m!=='chakra');$('freeTab').classList.toggle('active',m==='free');$('chakraTab').classList.toggle('active',m==='chakra');updateLabels()}
+$('chakraModOn').addEventListener('change',()=>{$('chakraModControls').classList.toggle('hidden',!$('chakraModOn').checked);updateLabels()});
+$('chakraModBeat').addEventListener('input',()=>{syncModBands();updateLabels()});
+function syncModBands(){document.querySelectorAll('[data-modbeat]').forEach(b=>b.classList.toggle('selected',Number(b.dataset.modbeat)===numeric('chakraModBeat')))}
+$('chakraModBands').addEventListener('click',e=>{const b=e.target.closest('[data-modbeat]');if(!b)return;$('chakraModBeat').value=b.dataset.modbeat;syncModBands();updateLabels()});
+function jumpToChakra(i){
+ if(!selected.has(i))return;
+ chakraIndex=i;
+ const ids=[...selected].sort((a,b)=>a-b);
+ chakraSequenceStart=Math.max(0,ids.indexOf(i));
+ elapsed=0;if(playing)started=performance.now();
+ lastChakraStep=-1;updateLabels();updateTimer();
+}
+$('chakraRestart').addEventListener('click',()=>{const ids=[...selected].sort((a,b)=>a-b);if(ids.length)jumpToChakra(ids[0])});
+$('chakraNext').addEventListener('click',()=>{const ids=[...selected].sort((a,b)=>a-b);if(!ids.length)return;const pos=ids.indexOf(chakraIndex);jumpToChakra(ids[(pos+1+ids.length)%ids.length])});
+$('freeTab').onclick=()=>switchMode('free');$('chakraTab').onclick=()=>switchMode('chakra');
+function syncChakraTiles(){
+ document.querySelectorAll('#chakraList .chakra').forEach((tile,i)=>{
+  const enabled=selected.has(i);
+  tile.classList.toggle('on',enabled);
+  tile.querySelector('.chakra-enable').checked=enabled;
+  tile.querySelector('.chakra-select').disabled=!enabled;
+  tile.querySelector('.chakra-select').setAttribute('aria-pressed',String(chakraIndex===i&&enabled));
+  tile.classList.remove('chosen');
+ });
+}
+chakraData.forEach((d,i)=>{
+ const tile=document.createElement('div');tile.className='chakra on';tile.style.background=d[1];
+ const pick=document.createElement('button');pick.type='button';pick.className='chakra-select';pick.textContent=String(i+1);
+ pick.onclick=()=>jumpToChakra(i);
+ const checkbox=document.createElement('input');checkbox.type='checkbox';checkbox.className='chakra-enable';checkbox.checked=true;
+ checkbox.onchange=()=>{
+  if(checkbox.checked)selected.add(i);else selected.delete(i);
+  const ids=[...selected].sort((a,b)=>a-b);
+  if(chakraPlayMode()!=='accumulate'){
+   if(!selected.has(chakraIndex))chakraIndex=ids[0]??0;
+   chakraSequenceStart=Math.max(0,ids.indexOf(chakraIndex));
+   elapsed=0;if(playing)started=performance.now();lastChakraStep=-1;
+  }
+  syncChakraTiles();updateLabels();updateTimer();
+ };
+ tile.append(pick,checkbox);$('chakraList').append(tile);
+});
+syncChakraTiles();
+document.querySelectorAll('input[name="chakraMode"]').forEach(x=>x.onchange=()=>{const ids=[...selected].sort((a,b)=>a-b);chakraSequenceStart=Math.max(0,ids.indexOf(chakraIndex));elapsed=0;if(playing)started=performance.now();lastChakraStep=-1;updateLabels()});document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{language=b.dataset.lang;translate();try{localStorage.setItem('norebo.language',language)}catch{}});translate();
+const canvas=$('viz'),g=canvas.getContext('2d');let lastVisualFrame=0;function draw(t){requestAnimationFrame(draw);if(document.hidden||t-lastVisualFrame<33)return;lastVisualFrame=t;let r=canvas.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);if(canvas.width!==Math.round(r.width*dpr)||canvas.height!==Math.round(r.height*dpr)){canvas.width=r.width*dpr;canvas.height=r.height*dpr}g.setTransform(dpr,0,0,dpr,0,0);let w=r.width,h=r.height;g.clearRect(0,0,w,h);g.lineWidth=1.5;let time=t*.001;for(let j=0;j<13;j++){g.beginPath();let y=h/2+(j-6)*8;for(let x=0;x<=w;x+=3){let a=Math.sin(x*.016-time*(playing?1.3:0.12)+j*.45),env=Math.pow(Math.max(0,1-Math.abs(x-w/2)/(w*.54)),1.7);let yy=y+a*env*(playing?32:14)+Math.sin(x*.008+j)*env*10;if(x===0)g.moveTo(x,yy);else g.lineTo(x,yy)}g.strokeStyle=j%3===0?'rgba(116,229,228,.55)':'rgba(166,138,255,.18)';g.stroke()}}requestAnimationFrame(draw);document.addEventListener('visibilitychange',()=>{if(!document.hidden){configurePlaybackSession();if((playing||ambientActive())&&ctx&&ctx.state!=='running')ctx.resume().catch(console.debug);if(ambientActive())scheduleAmbient();syncPlayback();updateDisplay()}});window.addEventListener('pageshow',()=>{configurePlaybackSession();if((playing||ambientActive())&&ctx&&ctx.state!=='running')ctx.resume().catch(console.debug)});
+// Generative ambient instruments: offline-created modal/breath samples and Web Audio timeline.
+// Long look-ahead means background timer throttling does not immediately interrupt phrases.
+let ambientBus=null,bowlGain=null,glassGain=null,gongGain=null,ambientReverb=null,ambientWet=null;
+let gongBuffer=null,gongLoading=null,nextGong=0;
+let ambientScheduled=[],ambientHorizon=0,ambientSeed=913,ambientBuffers={};
+const ambientLayers={bowls:new Set(),glass:new Set(),gong:new Set(),noise:new Set()};
+function registerAmbient(src,layer){ambientScheduled.push(src);ambientLayers[layer].add(src);src.onended=()=>{ambientLayers[layer].delete(src);const i=ambientScheduled.indexOf(src);if(i>=0)ambientScheduled.splice(i,1);try{src.disconnect()}catch(e){}}}
+function stopAmbientLayer(layer){const stopped=new Set(ambientLayers[layer]);for(const src of ambientLayers[layer]){try{src.stop()}catch(e){}}ambientLayers[layer].clear();ambientScheduled=ambientScheduled.filter(src=>!stopped.has(src));if(layer==='bowls')nextBowl=0;if(layer==='glass')nextGlass=0;if(layer==='gong')nextGong=0;if(layer==='noise')stopWhiteNoise()}
+
+const ambientRand=()=>{ambientSeed=(Math.imul(ambientSeed,1664525)+1013904223)>>>0;return ambientSeed/4294967296};
+const ambientPick=a=>a[Math.floor(ambientRand()*a.length)];
+function translateAmbient(){
+ const en=language==='en';
+ $('ambientTitle').textContent=en?'Ambient instruments':'Фоновые инструменты';
+ $('bowlsName').textContent=en?'Singing bowls':'Поющие чаши';
+ $('bowlsDesc').textContent=en?'Sustained rim singing':'Пение обода';
+ $('glassName').textContent=en?'Glass chimes':'Стеклянные переливы';
+ $('glassDesc').textContent=en?'Modal glass · paired resonances and natural decay':'Модальное стекло · парные резонансы и естественное затухание';
+ $('gongName').textContent=en?'Gong':'Гонг';
+ $('noiseName').textContent=en?'White noise':'Белый шум';
+ $('noiseDesc').textContent=en?'Soft, continuous broadband sound':'Мягкий непрерывный широкополосный шум';
+ $('gongDesc').textContent=en?'Deep metallic resonance · evolving swells':'Глубокий металлический резонанс · нарастающие волны';
+ $('bowlsLevelLabel').textContent=$('glassLevelLabel').textContent=$('gongLevelLabel').textContent=$('noiseLevelLabel').textContent=en?'Level':'Громкость';
+ $('ambientNote').textContent=en?'Locally synthesized glass and bowls · embedded gong prototype. No network downloads.':'Стекло и чаши синтезируются локально · прототип гонга встроен в файл. Без сетевых загрузок.';
+ $('ambientModeNote').textContent=en?'Ambient layers play independently of Play and can sound together with binaural beats.':'Фоновые слои работают независимо от Play и могут звучать одновременно с бинауральными биениями.';
+ $('ambientOn').setAttribute('aria-label',en?'Enable ambient background':'Включить фоновое звучание');
+ $('bowlsOn').setAttribute('aria-label',en?'Singing bowls':'Поющие чаши');
+ $('glassOn').setAttribute('aria-label',en?'Glass chimes':'Стеклянные переливы');
+ $('gongOn').setAttribute('aria-label',en?'Gong':'Гонг');
+ $('noiseOn').setAttribute('aria-label',en?'White noise':'Белый шум');
+}
+function makeImpulse(seconds=2.7){const sr=ctx.sampleRate,n=Math.floor(sr*seconds),b=ctx.createBuffer(2,n,sr);for(let c=0;c<2;c++){let d=b.getChannelData(c),v=0;for(let i=0;i<n;i++){v=.77*v+(.23*(Math.random()*2-1));d[i]=v*Math.pow(1-i/n,2.7)*.32;}}return b}
+function initAmbient(){ambientBus=ctx.createGain();ambientBus.gain.value=1;ambientBus.connect(master);ambientReverb=ctx.createConvolver();ambientReverb.buffer=makeImpulse();ambientWet=ctx.createGain();ambientWet.gain.value=.18;ambientReverb.connect(ambientWet).connect(ambientBus);bowlGain=ctx.createGain();glassGain=ctx.createGain();gongGain=ctx.createGain();noiseGain=ctx.createGain();noiseGain.gain.value=0;noiseGain.connect(ambientBus);for(const g of [bowlGain,glassGain,gongGain]){g.connect(ambientBus);g.connect(ambientReverb)}updateAmbientLevels()}
+function updateAmbientLevels(){if(!ctx)return;if(!$('noiseOn').checked&&noiseSource)stopWhiteNoise();const now=ctx.currentTime;for(const [id,g] of [['bowls',bowlGain],['glass',glassGain],['gong',gongGain],['noise',noiseGain]]){let on=$(id+'On').checked,v=Number($(id+'Level').value)/100;g.gain.setTargetAtTime(on?v*(id==='noise'?.20:.42):0,now,id==='noise'?.08:(on?1.1:.65));$(id+'LevelVal').textContent=Math.round(v*100)+'%'}}
+// Modal glass port: each partial is the impulse response of a damped resonator.
+// These are the four original glass kinds supplied in the technical reference.
+// Rendering to PCM once avoids hundreds of live oscillators and keeps this a single-file site.
+const modalGlassKinds=[
+ {weight:.35,partials:[[2581,.90,.30],[2593,1,.30],[7063,.07,.12],[12920,.025,.06]]},
+ {weight:.25,partials:[[3873,.40,.90],[3888,.66,.90],[2593,.25,.30],[10852,.12,.06]]},
+ {weight:.25,partials:[[2303,.90,.35],[2312,1,.35],[3888,.20,.50],[6182,.056,.09],[6211,.10,.09]]},
+ {weight:.15,partials:[[100,.50,.90],[129,.70,1],[328,.15,1.10],[387,.08,1.30],[662,.095,1.80]]}
+];
+function modalGlassBank(){
+ if(ambientBuffers.modalGlass)return ambientBuffers.modalGlass;
+ const sr=ctx.sampleRate;
+ return ambientBuffers.modalGlass=modalGlassKinds.map(kind=>{
+  // Preserve the original partial ratios and beating; extend their acoustic decay.
+  const decayStretch=2.6;
+  const tau=Math.max(...kind.partials.map(p=>p[2]))*decayStretch,seconds=8*tau;
+  const n=Math.ceil(seconds*sr),buffer=ctx.createBuffer(1,n,sr),out=buffer.getChannelData(0);
+  // Closed-form equivalent of the reference two-pole resonator impulse response.
+  // Recurrence avoids expensive per-sample trigonometric functions.
+  for(const [hz,amp,decay] of kind.partials){
+   if(hz>=sr*.49)continue;
+   const w=2*Math.PI*hz/sr,r=Math.exp(-1/(decay*decayStretch*sr));
+   const a1=2*r*Math.cos(w),a2=-r*r;
+   let y1=0,y2=0;
+   for(let i=0;i<n;i++){
+    const y=a1*y1+a2*y2+(i===0?amp*Math.sin(w):0);
+    y2=y1;y1=y;
+    const attack=Math.min(1,i/(.002*sr));
+    // A long, inaudible tail with a smooth final taper, never a hard cutoff.
+    const release=Math.min(1,(n-1-i)/(1.5*sr));
+    out[i]+=y*Math.min(attack,release)*.30;
+   }
+  }
+  return {buffer,seconds,weight:kind.weight};
+ });
+}
+function scheduleGlass(at,kindIndex,level,pan){
+ const item=modalGlassBank()[kindIndex],src=ctx.createBufferSource();src.buffer=item.buffer;
+ const amp=ctx.createGain(),p=ctx.createStereoPanner();p.pan.value=Math.max(-.5,Math.min(.5,pan));
+ // Small natural variation; no pitch shifting of modal frequency pairs.
+ src.playbackRate.value=1+(ambientRand()*2-1)*.002;
+ amp.gain.value=level*(.8+.4*ambientRand());
+ src.connect(amp).connect(p).connect(glassGain);
+ src.start(at);registerAmbient(src,'glass');
+}
+function pickModalGlassKind(){
+ const r=ambientRand(),sum=modalGlassKinds.reduce((v,k)=>v+k.weight,0);let left=r*sum;
+ for(let i=0;i<modalGlassKinds.length;i++){left-=modalGlassKinds[i].weight;if(left<=0)return i;}
+ return modalGlassKinds.length-1;
+}
+// The original low glass Kind 4 is also available as a bowl resonance accent.
+// It uses the EXACT SAME pre-rendered modal sample as glass Kind 4: no retuning,
+// no new oscillator recipe, and no changes to the glass instrument itself.
+function scheduleLowBowlResonance(at){
+ const item=modalGlassBank()[3],src=ctx.createBufferSource();src.buffer=item.buffer;
+ const amp=ctx.createGain(),pan=ctx.createStereoPanner();
+ src.playbackRate.value=1;
+ pan.pan.value=(ambientRand()-.5)*.25;
+ amp.gain.value=.075*(.9+.2*ambientRand());
+ src.connect(amp).connect(pan).connect(bowlGain);
+ src.start(at);registerAmbient(src,'bowls');
+}
+// Rim-singing physical model: paired flexural modes, gradual friction excitation,
+// uneven rotational pressure, and free modal decay. No mallet strikes or transients.
+function scheduleRimBowl(f,at,duration,level,pan){
+ const rubEnd=at+duration;
+ const release=13+ambientRand()*6;
+ const finish=rubEnd+release;
+ const panNode=ctx.createStereoPanner(),mix=ctx.createGain();
+ panNode.pan.value=Math.max(-.35,Math.min(.35,pan));
+ mix.connect(panNode).connect(bowlGain);
+ // A real bowl has inharmonic flexural modes. The paired axes generate slow
+ // amplitude beating without applying artificial vibrato to the pitch.
+ const modes=[
+  {ratio:1,amp:.72,tau:10.8,pulse:.035},
+  {ratio:2.71,amp:.235,tau:7.2,pulse:.24},
+  {ratio:5.18,amp:.065,tau:4.5,pulse:.18}
+ ];
+ const rotation=.24+ambientRand()*.095;
+ const phase=ambientRand()*Math.PI*2;
+ const hold=duration;
+ const rise=.9+ambientRand()*.45;
+ modes.forEach((mode,i)=>{
+  const pairDetune=.25*mode.ratio;
+  [-1,1].forEach((axis,j)=>{
+   const o=ctx.createOscillator(),gain=ctx.createGain();
+   o.type='sine';o.frequency.value=f*mode.ratio+axis*pairDetune;
+   const peak=level*mode.amp*(j===0?.62:.38);
+   const start=at+.07*i;
+   const curveSteps=Math.max(12,Math.ceil(hold/.34));
+   const envelope=new Float32Array(curveSteps+1);
+   for(let n=0;n<=curveSteps;n++){
+    const t=hold*n/curveSteps;
+    const grab=1-Math.exp(-t/rise);
+    const pressure=1+mode.pulse*Math.sin(2*Math.PI*rotation*t+phase+i*2.399963229728653);
+    // Smooth friction pressure: no randomized sharp attacks.
+    const slow=1+.055*Math.sin(2*Math.PI*.043*t+phase+i*.7);
+    envelope[n]=Math.max(.000001,peak*grab*pressure*slow);
+   }
+   gain.gain.setValueAtTime(0,start);
+   gain.gain.setValueCurveAtTime(envelope,start,Math.max(.05,rubEnd-start));
+   const tailStart=Math.max(start+.05,rubEnd);
+   const last=envelope[envelope.length-1];
+   gain.gain.setValueAtTime(last,tailStart);
+   // Physical free decay; fade the last quiet tail smoothly to digital zero.
+   const tailSteps=64,tail=new Float32Array(tailSteps);
+   for(let n=0;n<tailSteps;n++){
+    const t=release*n/(tailSteps-1);
+    const natural=Math.exp(-t/mode.tau);
+    const fade=Math.pow(Math.max(0,1-Math.pow(t/release,3)),2);
+    tail[n]=last*natural*fade;
+   }
+   tail[tailSteps-1]=0;
+   gain.gain.setValueCurveAtTime(tail,tailStart,release);
+   o.connect(gain).connect(mix);
+   o.start(start);o.stop(finish+.08);registerAmbient(o,'bowls');
+  });
+ });
+}
+// Harmony Conductor: a shared, deterministic musical clock for independent layers.
+// The carrier is not retuned: its closest pitch class only anchors the modal palette.
+const ambientModes=[
+ {name:'lydian',degrees:[0,2,4,6,7,9,11],path:[0,4,1,3,0,5,4,0]},
+ {name:'dorian',degrees:[0,2,3,5,7,9,10],path:[0,3,4,1,0,5,3,0]},
+ {name:'major-pentatonic',degrees:[0,2,4,7,9],path:[0,3,4,1,0,2,3,0]},
+ {name:'minor-pentatonic',degrees:[0,3,5,7,10],path:[0,3,4,1,0,2,3,0]}
+];
+let conductorOrigin=0,conductorEpoch=0,conductorMotif=null,conductorLastNote=null;
+function ambientHarmony(){
+ const carrier=mode==='free'?numeric('carrier'):(chakraData[chakraIndex]?.[0]||220);
+ const tonic=Math.max(48,Math.min(72,Math.round(69+12*Math.log2(Math.max(30,carrier)/440))));
+ const beat=numeric('beat'),bpm=Math.max(52,Math.min(74,58+beat*.65));
+ const quarter=60/bpm;
+ return {tonic,quarter};
+}
+function harmonyAt(time){
+ const {tonic,quarter}=ambientHarmony();
+ const bar=4*quarter;
+ const barNumber=Math.max(0,Math.floor((time-conductorOrigin)/bar));
+ const cycle=Math.floor(barNumber/32),section=Math.floor((barNumber%32)/4);
+ const modal=ambientModes[(conductorEpoch+Math.floor(cycle/2))%ambientModes.length];
+ const rootDegree=modal.path[section];
+ const root=modal.degrees[rootDegree%modal.degrees.length];
+ // Three-note modal voicing; tonic and fifth remain safe pedal tones.
+ const chord=[root,modal.degrees[(rootDegree+2)%modal.degrees.length]+(rootDegree+2>=modal.degrees.length?12:0),
+ modal.degrees[(rootDegree+4)%modal.degrees.length]+(rootDegree+4>=modal.degrees.length?12:0)];
+ const scale=[];
+ for(let oct=-4;oct<=4;oct++)for(const d of modal.degrees){const n=tonic+oct*12+d;if(n>=40&&n<=94)scale.push(n)}
+ scale.sort((a,b)=>a-b);
+ const density=.22+.55*Math.pow(Math.sin(Math.PI*((barNumber%32)+.5)/32),2);
+ return {tonic,quarter,bar,barNumber,cycle,section,modal,scale,chord:chord.map(n=>tonic+n),density};
+}
+function nearestPitch(scale,target,lo,hi){
+ const allowed=scale.filter(n=>n>=lo&&n<=hi);
+ return allowed.reduce((best,n)=>Math.abs(n-target)<Math.abs(best-target)?n:best,allowed[0]||target);
+}
+function chordPitch(h,target,lo,hi){
+ const notes=[];
+ for(const n of h.chord)for(let octave=-3;octave<=3;octave++){
+  const pitch=n+octave*12;if(pitch>=lo&&pitch<=hi)notes.push(pitch);
+ }
+ return notes.reduce((best,n)=>Math.abs(n-target)<Math.abs(best-target)?n:best,notes[0]||target);
+}
+function scheduleGlassCascade(at){
+ // The source recording uses discrete strikes, not continuous glass pads.
+ // Leave long gaps to avoid masking the binaural carrier or other instruments.
+ const kind=pickModalGlassKind();
+ if(ambientRand()<.90)scheduleGlass(at,kind,.10,(ambientRand()-.5)*.35);
+ return at+9+ambientRand()*13;
+}
+let nextBowl=0,nextGlass=0;
+function scheduleAmbient(){
+ if(!ctx||!ambientActive())return;
+ const now=ctx.currentTime;
+ // Each instrument owns its timeline; enabling another never restarts existing voices.
+ if($('bowlsOn').checked){
+  if(nextBowl<now)nextBowl=now+.8;
+  let count=0;while(nextBowl<now+42&&count++<4){
+   const h=harmonyAt(nextBowl);
+   // Modal pedal: root/fifth/chord tone, never a random pitch under a long tail.
+   const midi=chordPitch(h,ambientRand()<.7?53:62,47,66);
+   const f=440*Math.pow(2,(midi-69)/12),pan=(ambientRand()-.5)*.45;
+   const length=14+ambientRand()*10;
+   scheduleRimBowl(f,nextBowl,length,.24+ambientRand()*.10,pan);
+   // Rare low resonator accent: the original 100/129/328/387/662 Hz Kind 4.
+   // Keep the rim-singing texture; this is a supplementary, quiet resonance.
+   if(ambientRand()<.42)scheduleLowBowlResonance(nextBowl+2.5+ambientRand()*3);
+   nextBowl+=length+9+ambientRand()*8;
+  }
+ }
+ if($('glassOn').checked){
+  if(nextGlass<now){
+   const h=harmonyAt(now),beats=(now-conductorOrigin)/h.quarter;
+   nextGlass=conductorOrigin+(Math.ceil(beats/8)*8+7)*h.quarter;
+  }
+  let count=0;while(nextGlass<now+36&&count++<3){
+   // Each event excites the original inharmonic modal pairs; tails decay naturally.
+   nextGlass=scheduleGlassCascade(nextGlass);
+  }
+ }
+ if($('gongOn').checked && gongBuffer){
+  if(nextGong<now)nextGong=now+.1;
+  let count=0;while(nextGong<now+45&&count++<3){scheduleGong(nextGong);nextGong+=22;}
+ }
+}
+
+// Gong prototype: embedded 24-second synthesized study derived from the user's gong reference.
+// This is a sound prototype, not the original field recording. Single-file/offline compatible.
+
+// Spectral-model Gong: resynthesized from measured modal amplitudes of the original MP3.
+// This is an approximation, not a bit-identical reconstruction. No embedded audio files.
+const GONG_MODAL_DATA=[[177.65,[0.0016,0.0573,0.1341,0.2142,0.2379,0.3008,0.2764,0.3607,0.2763,0.3596,0.2375,0.3154,0.2177,0.2765,0.1893,0.218,0.1713,0.1763,0.1605,0.1432,0.1489,0.1161,0.1327,0.0939,0.1129,0.0817,0.1551,0.2032,0.3371,0.3386,0.4293,0.348,0.3228,0.3701,0.3861,0.4405,0.3292,0.3976,0.2902,0.4117,0.3177,0.457,0.3293,0.4438,0.358,0.3925,0.2338,0.1346,0.0122]],[236.87,[0.0014,0.0541,0.1183,0.173,0.2765,0.2732,0.2756,0.3591,0.3694,0.293,0.3143,0.3206,0.2612,0.2189,0.2465,0.2141,0.1512,0.1652,0.1658,0.1334,0.1242,0.1235,0.1107,0.0965,0.0964,0.1446,0.1533,0.1788,0.2459,0.2711,0.316,0.3952,0.4087,0.3476,0.3804,0.4316,0.375,0.3579,0.4374,0.4156,0.3404,0.4023,0.4788,0.4105,0.3998,0.4149,0.2567,0.1148,0.0194]],[118.43,[0.0015,0.0383,0.1221,0.1586,0.1656,0.2418,0.2147,0.2187,0.2864,0.2033,0.2256,0.2449,0.1666,0.1994,0.1908,0.126,0.1682,0.1441,0.1061,0.1398,0.1069,0.09,0.1117,0.0783,0.0733,0.0366,0.0467,0.1372,0.2021,0.1823,0.2788,0.298,0.2338,0.3414,0.3041,0.2694,0.3549,0.2727,0.2711,0.323,0.2585,0.2913,0.3316,0.2458,0.3122,0.265,0.1406,0.0944,0.0122]],[355.3,[0.0,0.0257,0.0694,0.1087,0.1395,0.1535,0.1624,0.1678,0.1738,0.1608,0.1611,0.1397,0.1305,0.1184,0.1165,0.1066,0.0986,0.089,0.0801,0.0706,0.0615,0.057,0.0501,0.0473,0.0422,0.0332,0.0825,0.1384,0.1801,0.2061,0.1998,0.2007,0.1929,0.201,0.2049,0.1936,0.2061,0.2243,0.2294,0.2399,0.2374,0.2344,0.2401,0.2285,0.233,0.1979,0.1364,0.0683,0.01]],[59.22,[0.001,0.022,0.0456,0.0821,0.1134,0.1318,0.1251,0.1026,0.1045,0.1317,0.1373,0.1256,0.0946,0.0675,0.0769,0.0888,0.0889,0.0741,0.0551,0.0475,0.0554,0.0609,0.056,0.0436,0.0311,0.0262,0.0558,0.0888,0.099,0.0878,0.0918,0.1121,0.13,0.1468,0.1309,0.1166,0.104,0.1381,0.1499,0.1544,0.1285,0.1249,0.1302,0.1641,0.1743,0.1352,0.0782,0.0359,0.005]],[413.17,[0.0,0.0127,0.0356,0.0595,0.0766,0.088,0.0865,0.0993,0.1025,0.1052,0.0962,0.0891,0.084,0.0722,0.0664,0.0592,0.0542,0.0505,0.045,0.0397,0.0336,0.0284,0.0255,0.0239,0.0215,0.023,0.0459,0.071,0.0832,0.0945,0.1026,0.1097,0.0988,0.1237,0.1328,0.1363,0.1372,0.1373,0.1291,0.1346,0.1379,0.1384,0.1352,0.1353,0.1364,0.1134,0.0712,0.0365,0.0047]],[296.08,[0.0,0.0058,0.0153,0.026,0.0379,0.0478,0.0527,0.0465,0.0442,0.0447,0.0482,0.0473,0.0391,0.0353,0.0276,0.0258,0.0292,0.027,0.0231,0.0217,0.0187,0.0154,0.0135,0.0127,0.0105,0.0046,0.009,0.024,0.0365,0.0407,0.0442,0.0451,0.0569,0.0632,0.0665,0.0595,0.0648,0.0656,0.0705,0.0591,0.0426,0.0494,0.0549,0.0685,0.0626,0.061,0.0371,0.0163,0.0025]],[506.03,[0.0,0.0053,0.015,0.0242,0.0314,0.035,0.0369,0.0427,0.0471,0.0445,0.0399,0.0346,0.0326,0.0291,0.0258,0.0226,0.0184,0.0164,0.0154,0.014,0.0123,0.0102,0.009,0.0079,0.0062,0.0065,0.0115,0.0276,0.0347,0.0436,0.0473,0.049,0.0521,0.0464,0.051,0.0544,0.059,0.0582,0.0578,0.0569,0.0608,0.0587,0.0573,0.0547,0.0534,0.0497,0.035,0.0176,0.0021]],[205.91,[0.0,0.0032,0.0077,0.0163,0.0179,0.0225,0.0298,0.0219,0.0321,0.0276,0.0253,0.0295,0.0223,0.0254,0.0227,0.0183,0.0211,0.0159,0.0148,0.0152,0.0095,0.0121,0.0097,0.008,0.0097,0.0101,0.0165,0.0241,0.0201,0.0245,0.0265,0.0307,0.0425,0.0328,0.0419,0.0389,0.0343,0.0444,0.0404,0.0425,0.0485,0.0353,0.0442,0.0377,0.0361,0.0404,0.0206,0.0135,0.0013]],[651.38,[0.0,0.0038,0.0109,0.0152,0.0236,0.0286,0.0291,0.0345,0.0346,0.0286,0.0325,0.0256,0.0243,0.0195,0.0197,0.0167,0.0156,0.0129,0.0107,0.008,0.0077,0.0069,0.006,0.0051,0.0042,0.0058,0.0105,0.0178,0.0284,0.034,0.0283,0.0415,0.0445,0.0407,0.0396,0.0544,0.042,0.0482,0.0349,0.0426,0.0458,0.0371,0.0465,0.0544,0.0387,0.0505,0.0337,0.0139,0.0014]],[332.42,[0.0,0.0017,0.0054,0.0098,0.0138,0.0162,0.0176,0.0184,0.0199,0.0201,0.0198,0.018,0.0177,0.0148,0.0129,0.0122,0.0116,0.0098,0.0081,0.0073,0.0063,0.006,0.0053,0.0053,0.0044,0.0029,0.0078,0.0126,0.0164,0.0177,0.0184,0.0224,0.0269,0.0255,0.0247,0.025,0.0267,0.0273,0.0301,0.0301,0.0306,0.0285,0.0296,0.0297,0.0305,0.0252,0.0166,0.008,0.001]],[946.12,[0.0,0.0021,0.0047,0.0095,0.0109,0.0119,0.0179,0.0181,0.0173,0.0142,0.014,0.011,0.0086,0.0076,0.0059,0.0054,0.0039,0.0028,0.0025,0.0022,0.0017,0.0014,0.001,0.0,0.0,0.0018,0.0057,0.0093,0.0126,0.0142,0.0163,0.0185,0.021,0.0222,0.0216,0.0232,0.0188,0.0233,0.0215,0.0224,0.0256,0.0251,0.0265,0.0263,0.0265,0.0199,0.0136,0.0072,0.0008]],[531.6,[0.0,0.0,0.0,0.0015,0.0028,0.0045,0.005,0.0071,0.0088,0.0059,0.0049,0.0078,0.0018,0.0046,0.0036,0.0029,0.0023,0.0016,0.0,0.0012,0.0011,0.0,0.0,0.0,0.0,0.0,0.0,0.0013,0.0068,0.0074,0.0073,0.0067,0.0124,0.0125,0.013,0.0091,0.0121,0.0157,0.0114,0.0241,0.0111,0.0094,0.012,0.0069,0.0116,0.0187,0.0031,0.0047,0.0009]],[769.81,[0.0,0.0,0.0,0.0016,0.0019,0.0055,0.0054,0.0053,0.0068,0.0063,0.0039,0.0042,0.0021,0.0024,0.0014,0.0014,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0017,0.0019,0.0041,0.0085,0.0094,0.0112,0.0066,0.0112,0.0137,0.0102,0.0087,0.0099,0.0121,0.0116,0.0113,0.013,0.0119,0.0089,0.0102,0.007,0.0036,0.0]],[592.16,[0.0,0.0,0.0,0.001,0.0029,0.0042,0.0069,0.0105,0.0065,0.0076,0.0066,0.0055,0.0024,0.002,0.0024,0.0023,0.0017,0.0013,0.001,0.0008,0.0009,0.0,0.0,0.0,0.0,0.0,0.0,0.0027,0.0041,0.0044,0.0051,0.004,0.0101,0.0059,0.0058,0.0066,0.0145,0.0129,0.0085,0.02,0.0112,0.0121,0.0124,0.0091,0.0093,0.008,0.0027,0.0021,0.0]],[473.73,[0.0,0.0,0.0,0.001,0.0035,0.0054,0.0062,0.0041,0.0086,0.0023,0.003,0.0016,0.0015,0.0029,0.0029,0.0028,0.0027,0.0014,0.0,0.0008,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0017,0.0061,0.0024,0.0039,0.0057,0.0148,0.0122,0.0082,0.0065,0.0092,0.0059,0.0152,0.0138,0.0096,0.0046,0.0137,0.0048,0.008,0.0116,0.0094,0.0045,0.0]],[710.6,[0.0,0.0,0.0,0.0013,0.0008,0.0067,0.0064,0.0081,0.0077,0.0072,0.0044,0.0045,0.0013,0.0018,0.0021,0.0019,0.0011,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.002,0.0036,0.0025,0.0048,0.0056,0.0065,0.003,0.0053,0.0049,0.0045,0.0073,0.0103,0.0105,0.0114,0.0115,0.0046,0.0058,0.0103,0.0056,0.0023,0.0012,0.0]],[827.68,[0.0,0.0,0.0,0.0,0.0019,0.002,0.0025,0.0026,0.0043,0.0038,0.0021,0.0028,0.0014,0.0019,0.0012,0.0011,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.001,0.0,0.001,0.0015,0.0029,0.0086,0.0095,0.0041,0.0094,0.0117,0.006,0.0055,0.0105,0.0084,0.0082,0.0093,0.0072,0.0094,0.0081,0.0047,0.0022,0.0021,0.0]],[886.9,[0.0,0.0,0.0009,0.0,0.0014,0.0019,0.0017,0.0022,0.0018,0.0027,0.0026,0.0019,0.0012,0.0016,0.0012,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0016,0.0013,0.0018,0.003,0.0047,0.0033,0.0038,0.0032,0.0038,0.0046,0.004,0.0046,0.0049,0.0033,0.0046,0.0052,0.0051,0.0032,0.0037,0.0082,0.0034,0.0017,0.0]],[1005.33,[0.0,0.0,0.0,0.0,0.0009,0.0018,0.0019,0.0014,0.0031,0.0017,0.0,0.0013,0.0013,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0009,0.001,0.0,0.0017,0.0037,0.0016,0.0026,0.0032,0.004,0.0029,0.0022,0.0064,0.0045,0.0037,0.0048,0.004,0.0033,0.0032,0.0016,0.0025,0.0013,0.0]],[565.25,[0.0,0.0,0.0,0.0,0.0014,0.0017,0.0016,0.0013,0.0019,0.0024,0.0013,0.0011,0.0,0.0,0.0,0.0,0.0009,0.0,0.0,0.0012,0.0,0.0,0.0,0.0,0.0,0.0009,0.0013,0.001,0.0,0.002,0.0015,0.0015,0.0021,0.0018,0.0017,0.0017,0.0022,0.0032,0.0034,0.0055,0.0023,0.0023,0.0023,0.001,0.0014,0.0016,0.0008,0.0,0.0]],[920.54,[0.0,0.0,0.0,0.0,0.0,0.0015,0.0013,0.0017,0.0016,0.001,0.001,0.001,0.0,0.0,0.0009,0.0008,0.0,0.0008,0.0,0.0,0.0008,0.0,0.0,0.0,0.0,0.0,0.0,0.0014,0.0,0.0018,0.002,0.0016,0.0015,0.0018,0.0024,0.0034,0.0028,0.0031,0.0015,0.0022,0.0023,0.0032,0.0032,0.0044,0.0024,0.0027,0.0011,0.0,0.0]],[92.86,[0.0,0.0,0.0,0.0,0.0,0.0008,0.0009,0.0016,0.0015,0.0009,0.0,0.001,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0011,0.0018,0.0018,0.0019,0.0018,0.0027,0.003,0.0021,0.0025,0.002,0.0025,0.0024,0.0024,0.0026,0.0034,0.0027,0.0032,0.001,0.0,0.0]],[624.46,[0.0,0.0,0.0,0.0,0.0,0.0009,0.0011,0.001,0.0011,0.0009,0.0,0.0,0.0,0.0,0.0008,0.0,0.0009,0.0,0.0,0.0009,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0011,0.0,0.0014,0.0021,0.0013,0.0021,0.0031,0.0025,0.0022,0.0019,0.0024,0.0024,0.002,0.0023,0.0012,0.0014,0.0026,0.0032,0.0024,0.0018,0.001,0.0]]];
+function loadGong(){
+ if(gongBuffer)return Promise.resolve(gongBuffer);
+ if(gongLoading)return gongLoading;
+ gongLoading=(async()=>{
+  const rate=22050,duration=24,Offline=window.OfflineAudioContext||window.webkitOfflineAudioContext;
+  if(!Offline)throw new Error('OfflineAudioContext is unavailable');
+  const offline=new Offline(2,rate*duration,rate);
+  const master=offline.createGain();master.gain.value=.65;master.connect(offline.destination);
+  for(let j=0;j<GONG_MODAL_DATA.length;j++){
+   const [frequency,levels]=GONG_MODAL_DATA[j];
+   const osc=offline.createOscillator(),gain=offline.createGain();
+   osc.type='sine';osc.frequency.value=frequency;
+   gain.gain.setValueAtTime(0,0);
+   for(let k=0;k<levels.length;k++){
+    const at=Math.min(duration-.001,k*.5);
+    gain.gain.linearRampToValueAtTime(levels[k],at);
+   }
+   gain.gain.linearRampToValueAtTime(0,duration);
+   osc.connect(gain).connect(master);osc.start(0);osc.stop(duration);
+  }
+  const rendered=await offline.startRendering();
+  // Match approximate loudness while protecting against clipping.
+  let peak=0;
+  for(let ch=0;ch<rendered.numberOfChannels;ch++){
+   const data=rendered.getChannelData(ch);
+   for(let i=0;i<data.length;i++)peak=Math.max(peak,Math.abs(data[i]));
+  }
+  if(peak>0){const factor=.92/peak;for(let ch=0;ch<rendered.numberOfChannels;ch++){
+   const data=rendered.getChannelData(ch);for(let i=0;i<data.length;i++)data[i]*=factor;
+  }}
+  gongBuffer=rendered;return gongBuffer;
+ })().catch(e=>{gongLoading=null;throw e});
+ return gongLoading;
+}
+function scheduleGong(at){
+ if(!gongBuffer||!ctx)return;
+ const src=ctx.createBufferSource(),env=ctx.createGain(),length=gongBuffer.duration;
+ // Gong v1 stays untouched. Only its playback is gently bass-shaped.
+ const bass=ctx.createBiquadFilter(),rumble=ctx.createBiquadFilter();
+ bass.type='lowshelf';bass.frequency.value=105;bass.gain.value=3.5;
+ rumble.type='highpass';rumble.frequency.value=28;rumble.Q.value=.707;
+ src.buffer=gongBuffer;
+ env.gain.setValueAtTime(0,at);
+ env.gain.linearRampToValueAtTime(.72,at+1.6);
+ env.gain.setValueAtTime(.72,at+Math.max(2,length-3.2));
+ env.gain.linearRampToValueAtTime(0,at+length);
+ src.connect(env).connect(bass).connect(rumble).connect(gongGain);
+ registerAmbient(src,'gong');
+ src.start(at);src.stop(at+length+.05);
+}
+
+// Continuous white noise: one reusable stereo buffer and one looped source; no periodic allocations.
+let noiseGain=null,noiseSource=null,noiseBuffer=null;
+function startWhiteNoise(){
+ if(!ctx||noiseSource||!$('noiseOn').checked)return;
+ if(!noiseBuffer){
+  const n=Math.max(1024,Math.floor(ctx.sampleRate*2));noiseBuffer=ctx.createBuffer(2,n,ctx.sampleRate);
+  for(let ch=0;ch<2;ch++){const d=noiseBuffer.getChannelData(ch);for(let i=0;i<n;i++)d[i]=Math.random()*2-1;}
+ }
+ const src=ctx.createBufferSource();src.buffer=noiseBuffer;src.loop=true;src.connect(noiseGain);noiseSource=src;
+ src.onended=()=>{try{src.disconnect()}catch(e){}if(noiseSource===src)noiseSource=null};src.start();
+}
+function stopWhiteNoise(){
+ // Mute the signal path immediately, even if an async start/resume is pending.
+ if(ctx&&noiseGain){const now=ctx.currentTime;noiseGain.gain.cancelScheduledValues(now);noiseGain.gain.setValueAtTime(0,now)}
+ const src=noiseSource;noiseSource=null;
+ if(src){try{src.stop()}catch(e){}try{src.disconnect()}catch(e){}}
+}
+
+function stopAmbient(){for(const layer of ['bowls','glass','gong','noise'])stopAmbientLayer(layer)}
+function stopAll(){
+ stopGeneration++;
+ // Turn off every source first, so pending async activation cannot restart it.
+ for(const id of ['bowls','glass','gong','noise'])$(id+'On').checked=false;
+ $('ambientOn').checked=false;
+ playing=false;elapsed=0;lastChakraStep=-1;
+ stopAmbient();
+ if(ctx){const now=ctx.currentTime;for(const v of voices){for(const gain of [v.lg.gain,v.rg.gain]){gain.cancelScheduledValues(now);gain.setValueAtTime(0,now)}}if(noiseGain){noiseGain.gain.cancelScheduledValues(now);noiseGain.gain.setValueAtTime(0,now)}}
+ updateAmbientLevels();updateAudio();
+ if(androidMedia&&!androidMedia.paused)androidMedia.pause();
+ $('play').textContent=T().start;$('signal').textContent='● IDLE';$('status').textContent=T().statusReady;
+ updateTimer();updateChakraVisual();updateMediaSession();
+}
+function resumeAmbient(){if(!ctx)return;
+ conductorOrigin=ctx.currentTime+.5;conductorEpoch=(conductorEpoch+1)%ambientModes.length;
+ conductorMotif=null;conductorLastNote=null;glassPhraseNumber=0;
+ nextBowl=nextGlass=nextGong=0;updateAmbientLevels();scheduleAmbient()}
+// The master ambient toggle is a convenience switch; individual layers are autonomous.
+async function activateAmbient(){
+ configurePlaybackSession();initAudio();
+ const mediaStart=androidMedia?androidMedia.play():Promise.resolve();
+ await Promise.all([ctx.resume(),mediaStart]);
+ if(!ambientActive()){stopWhiteNoise();return;}if($('noiseOn').checked)startWhiteNoise();else stopWhiteNoise();if(!conductorOrigin)resumeAmbient();else scheduleAmbient();
+ updateAudio();updateAmbientLevels();updateMediaSession();
+}
+$('ambientOn').addEventListener('change',()=>{
+ const enabled=$('ambientOn').checked;
+ for(const id of ['bowls','glass','gong','noise'])$(id+'On').checked=enabled;
+ if(enabled)activateAmbient().then(()=>{if(!$('gongOn').checked)return;return loadGong().then(()=>{if(!$('gongOn').checked)return;nextGong=0;scheduleAmbient()})}).catch(console.error);
+ else {stopAmbient();updateAmbientLevels();updateAudio();updateMediaSession();if(!playing&&androidMedia&&!androidMedia.paused)androidMedia.pause()}
+});
+for(const id of ['bowls','glass','gong','noise']){
+ $(id+'On').addEventListener('change',()=>{
+  const enabled=$(id+'On').checked;
+  $('ambientOn').checked=ambientActive();
+  if(enabled){
+   activateAmbient().then(()=>{if(id==='gong'&&$('gongOn').checked)loadGong().then(()=>{if(!$('gongOn').checked)return;nextGong=0;scheduleAmbient()}).catch(console.error)}).catch(console.error);
+  }else{
+   stopAmbientLayer(id);updateAmbientLevels();updateAudio();updateMediaSession();
+   if(!ambientActive()&&!playing&&androidMedia&&!androidMedia.paused)androidMedia.pause();
+  }
+ });
+ $(id+'Level').addEventListener('input',updateAmbientLevels);
+}
+</script><script>document.addEventListener('norebo-language-change',e=>{if(typeof language!=='undefined'&&typeof translate==='function'){language=e.detail.lang;translate()}})</script><style id="mobile-slider-gesture-fix">input[type="range"]{touch-action:pan-y;user-select:none;-webkit-user-select:none}@media(pointer:coarse){input[type="range"]{min-height:34px}}</style><script>
+(()=>{'use strict';
+const DICT={"Обзор": "Overview", "ИНСТРУМЕНТ · ПРОТОТИП 03":"INSTRUMENT · PROTOTYPE 03", "ГЕНЕРАТИВНАЯ МУЗЫКА · ПРОТОТИП 04":"GENERATIVE MUSIC · PROTOTYPE 04", "Guqin · Инструмент":"Guqin · Instrument", "Открыть инструмент →":"Open instrument →", "Слушать импровизацию →":"Listen to improvisation →", "Самостоятельная импровизация: пентатоника, память мотивов, развитие напряжения и выразительные паузы.":"Autonomous improvisation: pentatonic melodies, motif memory, tension and expressive silence.", "Плеер": "Player", "Рабочие пространства": "Workspaces", "ПЛЕЕР · РАБОТАЕТ": "PLAYER · AVAILABLE", "ЛАБОРАТОРИЯ · ПРОТОТИП 03": "LAB · PROTOTYPE 03", "ЭКСПЕРИМЕНТ · НОВОЕ": "EXPERIMENT · NEW", "Следующие лаборатории": "Upcoming laboratories", "ЗАПЛАНИРОВАНО": "PLANNED", "Архитектура": "Architecture", "Открыть плеер →": "Open player →", "Исследовать Guqin →": "Explore Guqin →", "Тестировать биения →": "Try binaural experiment →", "Пока доступно в плеере": "Currently available in Player", "Семь струн": "Seven strings", "Стандартный строй": "Standard tuning", ": C2 · D2 · F2 · G2 · A2 · C3 · D3. Нажмите на струну для щипка.": ": C2 · D2 · F2 · G2 · A2 · C3 · D3. Tap a string to pluck it.", "НИЗКИЕ · ГЛУБОКИЕ": "LOW · DEEP", "ВЫСОКИЕ · ТОНКИЕ": "HIGH · BRIGHT", "Открытая струна": "Open string", "Глубокий щипок": "Deep pluck", "Прижатая струна": "Pressed string", "Скольжение пальца": "Finger glide", "Флажолет": "Harmonic", "Чистый прозрачный тон": "Clear, transparent tone", "▶ Сыграть выбранную струну": "▶ Play selected string", "■ Заглушить всё": "■ Mute all", "Готов к прослушиванию": "Ready to play", "Осциллограмма и спектр": "Waveform and spectrum", "ВЫБРАННАЯ СТРУНА": "SELECTED STRING", "ОСНОВНАЯ ЧАСТОТА": "FUNDAMENTAL FREQUENCY", "ТЕХНИКА": "TECHNIQUE", "Параметры инструмента": "Instrument controls", "Меняйте параметры на слух. Они влияют на следующую ноту; общая громкость — сразу.": "Adjust by ear. Settings affect the next note; master volume changes immediately.", "Сохранить тембр": "Save timbre", "Восстановить тембр": "Restore timbre", "Настройки сохраняются только в этом браузере": "Settings are saved only in this browser", "Для оценки качества сначала слушайте": "For an initial sound check, listen", "без реверберации": "without reverb", "и в наушниках. Прижатая струна меняет высоту во время звучания; флажолет возбуждает преимущественно верхние моды.": "and with headphones. Pressed strings glide in pitch; harmonics emphasize higher modes.", "Как сравнивать звук": "Compare the sound", "Одна и та же струна, три техники.": "One string, three techniques.", "▶ Демонстрация трёх техник": "▶ Demo all three techniques", "синтетическая модель": "synthesized model", ", не сэмпл настоящего инструмента.": ", not a sample of a real instrument.", "Характер исполнения": "Performance style", "Созерцательный": "Contemplative", "Текучий": "Flowing", "Редкие ноты": "Sparse notes", "Темп": "Tempo", "Вариативность фраз": "Phrase variation", "Флажолеты и скольжения": "Harmonics and glides", "Дыхание между фразами": "Breathing between phrases", "Ожидание импровизации": "Waiting to improvise", "Память: ожидание · Динамика: покой": "Memory: waiting · Dynamics: calm", "▶ Начать импровизацию": "▶ Start improvisation", "■ Остановить": "■ Stop", "Генератор остановлен": "Generator stopped", "Обычный Guqin": "Standard Guqin", "Используй стереонаушники и начни с небольшой громкости.": "Use stereo headphones and start at low volume.", "Режим эксперимента": "Experiment mode", "Парные щипки с естественным затуханием": "Paired plucks with natural decay", "Повторные мягкие щипки для длительного звучания": "Repeated soft plucks for longer listening", "Чистые синусоиды для сравнения эффекта": "Pure sine waves for comparison", "Парные прижатые струны со скольжением": "Paired pressed strings with glides", "Струна / основная частота": "String / fundamental", "Бинауральная разность": "Binaural difference", "Громкость": "Volume", "Интервал щипков": "Pluck interval", "▶ Слушать": "▶ Listen", "↻ Щипнуть ещё раз": "↻ Pluck again", "■ Стоп": "■ Stop", "Готово к эксперименту": "Ready to experiment", "Акустическая разность": "Acoustic difference", "ЛЕВОЕ УХО": "LEFT EAR", "ПРАВОЕ УХО": "RIGHT EAR", "Выходной сигнал": "Output signal", "Гц": "Hz", "сек": "sec", "Биения, чакры, чаши, стекло, гонг и белый шум. Существующий звуковой движок сохранён без изменений.": "Beats, chakras, bowls, glass, gong and white noise. Existing audio engine preserved.", "Семь струн, три техники, цифровой волновод, осциллограмма и спектр. Добавлено сохранение тембра.": "Seven strings, three techniques, digital waveguide, waveform and spectrum, with timbre presets.", "Две виртуальные струны с разностью частот: Natural, Sustained, Pressed и контрольная синусоида. Только лабораторный эксперимент.": "Two virtual strings with a frequency offset: Natural, Sustained, Pressed and reference sine. Experimental only.", "Обертонный спектр, резонанс, продолжительность и характер возбуждения.": "Overtone spectrum, resonance, duration and excitation.", "Модальный синтез стекла и Gong v1 + Bass без изменения исходных тембров.": "Modal synthesis of glass and Gong v1 + Bass without changing existing timbres.", "Белый шум, фильтры, бинауральные частоты и чакры.": "White noise, filters, binaural frequencies and chakras.", "Стабильное прослушивание. Никаких изменений существующего аудиодвижка.": "Stable listening. No changes to the existing audio engine.", "Изолированное исследование тембров и техник. Настройки Guqin сохраняются локально.": "Explore timbres and techniques independently. Guqin settings stay local."};
+const KEY='norebo.language';
+const initial=(()=>{try{return localStorage.getItem(KEY)}catch{return null}})();
+let lang=initial==='en'||initial==='ru'?initial:'ru';
+const originals=new WeakMap();
+const skip=new Set(['SCRIPT','STYLE','TEXTAREA','CODE','PRE','OPTION']);
+function convert(s,to){if(to==='ru')return s;const lead=s.match(/^\s*/)[0],tail=s.match(/\s*$/)[0],core=s.trim();return Object.hasOwn(DICT,core)?lead+DICT[core]+tail:s}
+function translateTree(root){const walk=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while(n=walk.nextNode()){if(!n.parentElement||skip.has(n.parentElement.tagName)||n.parentElement.closest('[data-norebo-no-translate]'))continue;let orig=originals.get(n);if(orig===undefined){orig=n.nodeValue;originals.set(n,orig)}const next=convert(orig,lang);if(n.nodeValue!==next)n.nodeValue=next}}
+function updateButtons(){document.documentElement.lang=lang;document.querySelectorAll('[data-site-lang]').forEach(b=>{b.classList.toggle('active',b.dataset.siteLang===lang);b.setAttribute('aria-pressed',String(b.dataset.siteLang===lang))});document.querySelectorAll('[data-lang]').forEach(b=>{b.classList.toggle('active',b.dataset.lang===lang);b.setAttribute('aria-pressed',String(b.dataset.lang===lang))})}
+function setLang(v){if(!['ru','en'].includes(v))return;lang=v;try{localStorage.setItem(KEY,v)}catch{};translateTree(document.body);updateButtons();document.dispatchEvent(new CustomEvent('norebo-language-change',{detail:{lang:v}}))}
+function init(){const nav=document.querySelector('.soundlab-nav');if(nav){nav.innerHTML='';nav.classList.add('norebo-header');const brand=document.createElement('a');brand.className='norebo-brand';brand.href=location.pathname.includes('/labs/')?'../index.html':'index.html';brand.textContent='NOREBO / SOUND LAB';nav.append(brand);const paths=location.pathname.includes('/labs/')?['../index.html','../player.html','guqin.html','guqin-generative.html','guqin-binaural.html']:['index.html','player.html','labs/guqin.html','labs/guqin-generative.html','labs/guqin-binaural.html'];const names={ru:['Главная','Binaural Player','Guqin · Инструмент','Generative Guqin','Guqin Binaural'],en:['Home','Binaural Player','Guqin · Instrument','Generative Guqin','Guqin Binaural']};const links=document.createElement('div');links.className='norebo-links';paths.forEach((p,i)=>{const a=document.createElement('a');a.href=p;a.dataset.navIndex=i;a.textContent=names[lang][i];if(new URL(p,location.href).pathname===location.pathname||(!location.pathname.split('/').pop()&&i===0))a.setAttribute('aria-current','page');links.append(a)});nav.append(links);const picker=document.createElement('div');picker.className='norebo-langs';for(const v of ['ru','en']){const b=document.createElement('button');b.type='button';b.dataset.siteLang=v;b.textContent=v.toUpperCase();b.addEventListener('click',()=>setLang(v));picker.append(b)}nav.append(picker);document.addEventListener('norebo-language-change',()=>{links.querySelectorAll('a').forEach((a,i)=>a.textContent=names[lang][i])})}
+if(document.querySelector('.language [data-lang]')){document.querySelectorAll('.language [data-lang]').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));if(initial){const b=document.querySelector('.language [data-lang="'+lang+'"]');if(b)b.click()}}
+translateTree(document.body);updateButtons();
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+window.NoreboLanguage={get:()=>lang,set:setLang};
+})();
+</script><script>
+// Single-page RU/EN controls; keep the existing translation engine.
+document.querySelectorAll('[data-site-lang]').forEach(button => {
+  button.addEventListener('click', () => window.NoreboLanguage?.set(button.dataset.siteLang));
+});
+
+</script><script>
+// This single-file edition no longer installs a Service Worker.
+// Unregister a legacy NOREBO worker so it cannot keep serving an older index.html.
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.getRegistrations().then(registrations => {
+      for (const registration of registrations) {
+        if (registration.scope === new URL('./', location.href).href) registration.unregister();
+      }
+    }).catch(() => {});
+  });
+}
+</script></body></html>
