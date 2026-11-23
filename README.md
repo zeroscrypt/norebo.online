@@ -26,6 +26,27 @@ python3 -m http.server 8000
 
 Сайт рассчитан на GitHub Pages с доменом `norebo.online` (см. `CNAME`). Файл `.nojekyll` отключает обработку Jekyll, чтобы статика отдавалась как есть. После `git push` в `main` GitHub Pages собирает сайт автоматически.
 
+## Версии
+
+Источник версии — файл `VERSION` в формате `1.0.2`. Версия показывается на главной рядом с `by @zeroscrypt` и внизу страницы гуциня.
+
+- Малая правка — растёт последняя цифра: `1.0.2` → `1.0.3`.
+- Существенная правка — вторая: `1.0.3` → `1.1.0`. Добавь `[minor]` в сообщение последнего коммита.
+- Корневое изменение — первая: `1.1.0` → `2.0.0`. Добавь `[major]` в сообщение коммита.
+
+После пуша в `main` workflow `.github/workflows/version.yml` сам поднимает версию, обновляет обе HTML-страницы и делает служебный коммит с `[skip ci]`. Это требует права `Contents: Read and write` для GitHub Actions: **Settings → Actions → General → Workflow permissions**.
+
+Ручной вариант:
+
+```bash
+node scripts/bump-version.mjs patch   # 1.0.2 -> 1.0.3
+node scripts/bump-version.mjs minor   # 1.0.2 -> 1.1.0
+node scripts/bump-version.mjs major   # 1.0.2 -> 2.0.0
+node scripts/bump-version.mjs --dry-run patch
+```
+
+Если не хочешь служебных коммитов от Actions, отключи workflow и запускай скрипт перед `git push` вручную.
+
 ## Принципы
 
 - Одна страница — один файл: CSS и JS встроены, внешних шрифтов и CDN нет.
